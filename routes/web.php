@@ -14,7 +14,7 @@
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-Route::get ('/index','IndexController@index')->name ('index');
+Route::get ('/','IndexController@index')->name ('index');
 Route::get ('/edu/admin','Edu\ArticleController@index')->name ('edu.admin');
 
 Route::resource ('/edu/photo','Edu\PhotoController');

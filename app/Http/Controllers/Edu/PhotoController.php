@@ -24,7 +24,7 @@ class PhotoController extends Controller
      */
     public function create()
     {
-//    	dd ($_POST);
+
 	    return view ('edu.photo.create');
     }
 
@@ -36,8 +36,9 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
+
       dd ($request->all());
-//        return view ('edu.photo.store');
+
     }
 
     /**
