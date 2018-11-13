@@ -8,8 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<p>我是index页面</p>
-<a href="{{route ('edu.admin')}}">跳转页面</a>
+<p>我是edu中的admin页面</p>
 
 </body>
 </html>
