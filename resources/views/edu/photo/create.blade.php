@@ -11,6 +11,7 @@
 <h1>我是edu中的create页面</h1>
 <form action="{{route ('photo.store')}}"  method="post">
     @csrf
+
     <input type="text" name="title" >
     <button>提交</button>
 </form>

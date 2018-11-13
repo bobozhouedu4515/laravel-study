@@ -8,7 +8,23 @@
     <title>Document</title>
 </head>
 <body>
-<h1>我是edu中的index方法</h1>
+<table border="1">
+    <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>年龄</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>删除</td>
+    </tr>
+
+</table>
 
 </body>
 </html>

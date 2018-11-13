@@ -14,7 +14,9 @@ class PhotoController extends Controller
      */
     public function index()
     {
-    	return view ('edu.photo.index');
+    	$str='后盾人';
+    	$arr=[3,4,5];
+    	return view ('edu.photo.index',compact ('str','arr'));
     }
 
     /**
@@ -49,7 +51,7 @@ class PhotoController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -60,7 +62,7 @@ class PhotoController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
