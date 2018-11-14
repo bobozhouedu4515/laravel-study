@@ -14,7 +14,10 @@
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-Route::get ('/','IndexController@index')->name ('index');
-Route::get ('/edu/admin','Edu\ArticleController@index')->name ('edu.admin');
+Route::get ('/','Home\IndexController@index');
+	Route ::get ('/user/register', 'User\UserController@register') -> name ('register');
+	Route ::post ('/user/register', 'User\UserController@store') -> name ('register');
 
-Route::resource ('/edu/photo','Edu\PhotoController');
+	Route ::get ('/user/login', 'User\UserController@login') -> name ('login');
+
+	Route::any ('/code/send','Util\CodeController@send')->name ('code.send');
