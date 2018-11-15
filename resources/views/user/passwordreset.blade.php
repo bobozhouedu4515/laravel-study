@@ -27,52 +27,17 @@
 
             <!-- Heading -->
             <h1 class="display-4 text-center mb-3">
-                注册
+              重置密码
             </h1>
 
             <!-- Subheading -->
             <p class="text-muted text-center mb-5">
-               免费注册共同交流
+                请妥善保存好自己的密码
             </p>
 
             <!-- Form -->
-            <form action="{{route ('register')}}" method="post">
-               @csrf
-                <div class="form-group">
-
-                    <!-- Label -->
-                    <label>
-                       昵称
-                    </label>
-
-                    <!-- Input -->
-                    <input type="text" class="form-control" value="{{old ('name')}}" name="name" placeholder="请输入昵称">
-
-                </div>
-                <div class="form-group">
-
-                    <!-- Label -->
-                    <label>
-                        密码
-                    </label>
-
-                    <!-- Input -->
-                    <input type="password" class="form-control" name="password" placeholder="请输入密码">
-
-                </div>
-                <div class="form-group">
-
-                    <!-- Label -->
-                    <label>
-                       确认密码
-                    </label>
-
-                    <!-- Input -->
-                    <input type="password" class="form-control" name="password_confirmation" placeholder="再次输入密码">
-
-                </div>
-
-                <!-- Email address -->
+            <form action="{{route ('user.store')}}" method="post">
+                @csrf
                 <div class="form-group">
 
                     <!-- Label -->
@@ -84,6 +49,32 @@
                     <input type="email" class="form-control" name="email" value="13934873532@163.com" placeholder="name@address.com">
 
                 </div>
+
+
+                <div class="form-group">
+
+                    <!-- Label -->
+                    <label>
+                        新密码
+                    </label>
+
+                    <!-- Input -->
+                    <input type="password" class="form-control" name="password" placeholder="请输入密码">
+
+                </div>
+                <div class="form-group">
+
+                    <!-- Label -->
+                    <label>
+                        确认密码
+                    </label>
+
+                    <!-- Input -->
+                    <input type="password" class="form-control" name="password_confirmation" placeholder="再次输入密码">
+
+                </div>
+
+                <!-- Email address -->
 
                 <div class="form-group">
                     <!-- Label -->
@@ -101,13 +92,13 @@
 
                 <!-- Submit -->
                 <button class="btn btn-lg btn-block btn-primary mb-3">
-                    注册
+                    重置
                 </button>
 
                 <!-- Link -->
                 <div class="text-center">
                     <small class="text-muted text-center">
-                        已经有账号了? <a href="{{route ('login')}}">去登录</a>.
+                        我想起密码了! <a href="{{route ('login')}}">去登录</a>.
                     </small>
                 </div>
 
@@ -117,17 +108,17 @@
     </div> <!-- / .row -->
 </div> <!-- / .container -->
 {{--<script>--}}
-    {{--window.hdjs={--}}
-        {{--//组件目录必须绝对路径--}}
-        {{--base:'{{asset ('org')}}/hdjs',--}}
-        {{--//上传文件后台地址--}}
-        {{--uploader : '/uploader.php?',--}}
-        {{--//获取文件列表的后台地址--}}
-        {{--filesLists : '/filesLists.php?',--}}
+{{--window.hdjs={--}}
+{{--//组件目录必须绝对路径--}}
+{{--base:'{{asset ('org')}}/hdjs',--}}
+{{--//上传文件后台地址--}}
+{{--uploader : '/uploader.php?',--}}
+{{--//获取文件列表的后台地址--}}
+{{--filesLists : '/filesLists.php?',--}}
 
-        {{--//require.js配置项（可为空）--}}
-        {{--requireJs:{paths:{},shim:{}},--}}
-    {{--};--}}
+{{--//require.js配置项（可为空）--}}
+{{--requireJs:{paths:{},shim:{}},--}}
+{{--};--}}
 {{--</script>--}}
 
 {{--<script src="{{asset ('org')}}/hdjs/require.js"></script>--}}
@@ -152,39 +143,39 @@
 </script>
 
 {{--<script>--}}
-    {{--@if (session()->has('danger'))--}}
-    {{--require(['hdjs'], function (hdjs) {--}}
-        {{--hdjs.swal({--}}
-            {{--text: "{{session()->get('danger')}}",--}}
-            {{--button:false,--}}
-            {{--icon:'warning'--}}
-        {{--});--}}
-    {{--})--}}
-    {{--@endif--}}
+{{--@if (session()->has('danger'))--}}
+{{--require(['hdjs'], function (hdjs) {--}}
+{{--hdjs.swal({--}}
+{{--text: "{{session()->get('danger')}}",--}}
+{{--button:false,--}}
+{{--icon:'warning'--}}
+{{--});--}}
+{{--})--}}
+{{--@endif--}}
 {{--</script>--}}
 
 {{--<script>--}}
-    {{--@if (session()->has('success'))--}}
-    {{--require(['hdjs'], function (hdjs) {--}}
-        {{--hdjs.swal({--}}
-            {{--text: "{{session()->get('success')}}",--}}
-            {{--button:false,--}}
-            {{--icon:'success'--}}
-        {{--});--}}
-    {{--})--}}
-    {{--@endif--}}
+{{--@if (session()->has('success'))--}}
+{{--require(['hdjs'], function (hdjs) {--}}
+{{--hdjs.swal({--}}
+{{--text: "{{session()->get('success')}}",--}}
+{{--button:false,--}}
+{{--icon:'success'--}}
+{{--});--}}
+{{--})--}}
+{{--@endif--}}
 {{--</script>--}}
 
 {{--<script>--}}
-    {{--@if ($errors->any())--}}
-    {{--require(['hdjs'], function (hdjs) {--}}
-        {{--hdjs.swal({--}}
-            {{--text: "@foreach ($errors->all() as $error) {{ $error }}\r\n @endforeach",--}}
-            {{--button:false,--}}
-            {{--icon:'warning'--}}
-        {{--});--}}
-    {{--})--}}
-    {{--@endif--}}
+{{--@if ($errors->any())--}}
+{{--require(['hdjs'], function (hdjs) {--}}
+{{--hdjs.swal({--}}
+{{--text: "@foreach ($errors->all() as $error) {{ $error }}\r\n @endforeach",--}}
+{{--button:false,--}}
+{{--icon:'warning'--}}
+{{--});--}}
+{{--})--}}
+{{--@endif--}}
 {{--</script>--}}
 
 

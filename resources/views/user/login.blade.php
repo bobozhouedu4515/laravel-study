@@ -15,7 +15,7 @@
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/css/theme.min.css">
 
-    <title>Dashkit</title>
+    <title>登录</title>
 </head>
 <body class="d-flex align-items-center bg-white border-top-2 border-primary">
 
@@ -27,27 +27,28 @@
 
             <!-- Heading -->
             <h1 class="display-4 text-center mb-3">
-                Sign up
+               登录
             </h1>
 
             <!-- Subheading -->
             <p class="text-muted text-center mb-5">
-                Free access to our dashboard.
+               好好学习 天天向上
             </p>
 
             <!-- Form -->
-            <form>
+            <form action="{{route ('login.form')}}" method="post">
+                @csrf
 
                 <!-- Email address -->
                 <div class="form-group">
 
                     <!-- Label -->
                     <label>
-                        Email Address
+                       邮箱
                     </label>
 
                     <!-- Input -->
-                    <input type="email" class="form-control" placeholder="name@address.com">
+                    <input type="email" class="form-control" name="email" placeholder="请输入邮箱">
 
                 </div>
 
@@ -56,20 +57,20 @@
 
                     <!-- Label -->
                     <label>
-                        Password
+                       密码
                     </label>
 
                     <!-- Input group -->
                     <div class="input-group input-group-merge">
 
                         <!-- Input -->
-                        <input type="password" class="form-control form-control-appended" placeholder="Enter your password">
+                        <input type="password" name="password" class="form-control " placeholder="请输入密码">
 
                         <!-- Icon -->
                         <div class="input-group-append">
-                  <span class="input-group-text">
-                    <i class="fe fe-eye"></i>
-                  </span>
+                  {{--<span class="input-group-text">--}}
+                    {{--<i class="fe fe-eye"></i>--}}
+                  {{--</span>--}}
                         </div>
 
                     </div>
@@ -77,13 +78,20 @@
 
                 <!-- Submit -->
                 <button class="btn btn-lg btn-block btn-primary mb-3">
-                    Sign up
+                   登录
                 </button>
 
                 <!-- Link -->
                 <div class="text-center">
                     <small class="text-muted text-center">
-                        Already have an account? <a href="sign-in.html">Log in</a>.
+                       没有账号? <a href="{{route ('register')}}">快去注册</a>
+
+                    </small>
+
+                </div>
+                <div class="text-center">
+                    <small class="text-muted text-center">
+                        忘记密码?<a href="{{route ('user.reset')}}">重置密码</a>
                     </small>
                 </div>
 
@@ -92,25 +100,10 @@
         </div>
     </div> <!-- / .row -->
 </div> <!-- / .container -->
-
+@include('layouts.hdjs');
+@include('layouts.message');
 <!-- JAVASCRIPT
 ================================================== -->
-
-<!-- Libs JS -->
-<script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/jquery/dist/jquery.min.js"></script>
-<script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/chart.js/dist/Chart.min.js"></script>
-<script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/chart.js/Chart.extension.min.js"></script>
-<script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/highlight/highlight.pack.min.js"></script>
-<script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/flatpickr/dist/flatpickr.min.js"></script>
-<script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
-<script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/list.js/dist/list.min.js"></script>
-<script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/quill/dist/quill.min.js"></script>
-<script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/dropzone/dist/min/dropzone.min.js"></script>
-<script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/select2/dist/js/select2.min.js"></script>
-
-<!-- Theme JS -->
-<script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/js/theme.min.js"></script>
 
 </body>
 </html>

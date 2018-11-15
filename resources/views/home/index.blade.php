@@ -261,275 +261,293 @@
                 </a>
 
                 <!-- Menu -->
-                <div class="dropdown-menu dropdown-menu-right dropdown-menu-card">
-                    <div class="card-header">
-                        <div class="row align-items-center">
-                            <div class="col">
+                {{--<div class="dropdown-menu dropdown-menu-right dropdown-menu-card">--}}
+                    {{--<div class="card-header">--}}
+                        {{--<div class="row align-items-center">--}}
+                            {{--<div class="col">--}}
 
-                                <!-- Title -->
-                                <h5 class="card-header-title">
-                                    Notifications
-                                </h5>
+                                {{--<!-- Title -->--}}
+                                {{--<h5 class="card-header-title">--}}
+                                    {{--Notifications--}}
+                                {{--</h5>--}}
 
-                            </div>
-                            <div class="col-auto">
+                            {{--</div>--}}
+                            {{--<div class="col-auto">--}}
 
-                                <!-- Link -->
-                                <a href="#!" class="small">
-                                    View all
-                                </a>
+                                {{--<!-- Link -->--}}
+                                {{--<a href="#!" class="small">--}}
+                                    {{--View all--}}
+                                {{--</a>--}}
 
-                            </div>
-                        </div> <!-- / .row -->
-                    </div> <!-- / .card-header -->
-                    <div class="card-body">
+                            {{--</div>--}}
+                        {{--</div> <!-- / .row -->--}}
+                    {{--</div> <!-- / .card-header -->--}}
+                    {{--<div class="card-body">--}}
 
-                        <!-- List group -->
-                        <div class="list-group list-group-flush my--3">
-                            <a class="list-group-item px-0" href="#!">
+                        {{--<!-- List group -->--}}
+                        {{--<div class="list-group list-group-flush my--3">--}}
+                            {{--<a class="list-group-item px-0" href="#!">--}}
 
-                                <div class="row">
-                                    <div class="col-auto">
+                                {{--<div class="row">--}}
+                                    {{--<div class="col-auto">--}}
 
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-sm">
-                                            <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-1.jpg" alt="..." class="avatar-img rounded-circle">
-                                        </div>
+                                        {{--<!-- Avatar -->--}}
+                                        {{--<div class="avatar avatar-sm">--}}
+                                            {{--<img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-1.jpg" alt="..." class="avatar-img rounded-circle">--}}
+                                        {{--</div>--}}
 
-                                    </div>
-                                    <div class="col ml--2">
+                                    {{--</div>--}}
+                                    {{--<div class="col ml--2">--}}
 
-                                        <!-- Content -->
-                                        <div class="small text-muted">
-                                            <strong class="text-body">Dianna Smiley</strong> shared your post with <strong class="text-body">Ab Hadley</strong>, <strong class="text-body">Adolfo Hess</strong>, and <strong class="text-body">3 others</strong>.
-                                        </div>
+                                        {{--<!-- Content -->--}}
+                                        {{--<div class="small text-muted">--}}
+                                            {{--<strong class="text-body">Dianna Smiley</strong> shared your post with <strong class="text-body">Ab Hadley</strong>, <strong class="text-body">Adolfo Hess</strong>, and <strong class="text-body">3 others</strong>.--}}
+                                        {{--</div>--}}
 
-                                    </div>
-                                    <div class="col-auto">
+                                    {{--</div>--}}
+                                    {{--<div class="col-auto">--}}
 
-                                        <small class="text-muted">
-                                            2m
-                                        </small>
+                                        {{--<small class="text-muted">--}}
+                                            {{--888888--}}
+                                        {{--</small>--}}
 
-                                    </div>
-                                </div> <!-- / .row -->
+                                    {{--</div>--}}
+                                {{--</div> <!-- / .row -->--}}
 
-                            </a>
-                            <a class="list-group-item px-0" href="#!">
+                            {{--</a>--}}
+                            {{--<a class="list-group-item px-0" href="#!">--}}
 
-                                <div class="row">
-                                    <div class="col-auto">
+                                {{--<div class="row">--}}
+                                    {{--<div class="col-auto">--}}
 
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-sm">
-                                            <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-2.jpg" alt="..." class="avatar-img rounded-circle">
-                                        </div>
+                                        {{--<!-- Avatar -->--}}
+                                        {{--<div class="avatar avatar-sm">--}}
+                                            {{--<img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-2.jpg" alt="..." class="avatar-img rounded-circle">--}}
+                                        {{--</div>--}}
 
-                                    </div>
-                                    <div class="col ml--2">
+                                    {{--</div>--}}
+                                    {{--<div class="col ml--2">--}}
 
-                                        <!-- Content -->
-                                        <div class="small text-muted">
-                                            <strong class="text-body">Ab Hadley</strong> reacted to your post with a 😍
-                                        </div>
+                                        {{--<!-- Content -->--}}
+                                        {{--<div class="small text-muted">--}}
+                                            {{--<strong class="text-body">Ab Hadley</strong> reacted to your post with a 😍--}}
+                                        {{--</div>--}}
 
-                                    </div>
-                                    <div class="col-auto">
+                                    {{--</div>--}}
+                                    {{--<div class="col-auto">--}}
 
-                                        <small class="text-muted">
-                                            2m
-                                        </small>
+                                        {{--<small class="text-muted">--}}
+                                            {{--2m--}}
+                                        {{--</small>--}}
 
-                                    </div>
-                                </div> <!-- / .row -->
+                                    {{--</div>--}}
+                                {{--</div> <!-- / .row -->--}}
 
-                            </a>
-                            <a class="list-group-item px-0" href="#!">
+                            {{--</a>--}}
+                            {{--<a class="list-group-item px-0" href="#!">--}}
 
-                                <div class="row">
-                                    <div class="col-auto">
+                                {{--<div class="row">--}}
+                                    {{--<div class="col-auto">--}}
 
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-sm">
-                                            <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-3.jpg" alt="..." class="avatar-img rounded-circle">
-                                        </div>
+                                        {{--<!-- Avatar -->--}}
+                                        {{--<div class="avatar avatar-sm">--}}
+                                            {{--<img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-3.jpg" alt="..." class="avatar-img rounded-circle">--}}
+                                        {{--</div>--}}
 
-                                    </div>
-                                    <div class="col ml--2">
+                                    {{--</div>--}}
+                                    {{--<div class="col ml--2">--}}
 
-                                        <!-- Content -->
-                                        <div class="small text-muted">
-                                            <strong class="text-body">Adolfo Hess</strong> commented <blockquote class="text-body">“I don’t think this really makes sense to do without approval from Johnathan since he’s the one...” </blockquote>
-                                        </div>
+                                        {{--<!-- Content -->--}}
+                                        {{--<div class="small text-muted">--}}
+                                            {{--<strong class="text-body">Adolfo Hess</strong> commented <blockquote class="text-body">“I don’t think this really makes sense to do without approval from Johnathan since he’s the one...” </blockquote>--}}
+                                        {{--</div>--}}
 
-                                    </div>
-                                    <div class="col-auto">
+                                    {{--</div>--}}
+                                    {{--<div class="col-auto">--}}
 
-                                        <small class="text-muted">
-                                            2m
-                                        </small>
+                                        {{--<small class="text-muted">--}}
+                                            {{--2m--}}
+                                        {{--</small>--}}
 
-                                    </div>
-                                </div> <!-- / .row -->
+                                    {{--</div>--}}
+                                {{--</div> <!-- / .row -->--}}
 
-                            </a>
-                            <a class="list-group-item px-0" href="#!">
+                            {{--</a>--}}
+                            {{--<a class="list-group-item px-0" href="#!">--}}
 
-                                <div class="row">
-                                    <div class="col-auto">
+                                {{--<div class="row">--}}
+                                    {{--<div class="col-auto">--}}
 
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-sm">
-                                            <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-4.jpg" alt="..." class="avatar-img rounded-circle">
-                                        </div>
+                                        {{--<!-- Avatar -->--}}
+                                        {{--<div class="avatar avatar-sm">--}}
+                                            {{--<img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-4.jpg" alt="..." class="avatar-img rounded-circle">--}}
+                                        {{--</div>--}}
 
-                                    </div>
-                                    <div class="col ml--2">
+                                    {{--</div>--}}
+                                    {{--<div class="col ml--2">--}}
 
-                                        <!-- Content -->
-                                        <div class="small text-muted">
-                                            <strong class="text-body">Daniela Dewitt</strong> subscribed to you.
-                                        </div>
+                                        {{--<!-- Content -->--}}
+                                        {{--<div class="small text-muted">--}}
+                                            {{--<strong class="text-body">Daniela Dewitt</strong> subscribed to you.--}}
+                                        {{--</div>--}}
 
-                                    </div>
-                                    <div class="col-auto">
+                                    {{--</div>--}}
+                                    {{--<div class="col-auto">--}}
 
-                                        <small class="text-muted">
-                                            2m
-                                        </small>
+                                        {{--<small class="text-muted">--}}
+                                            {{--2m--}}
+                                        {{--</small>--}}
 
-                                    </div>
-                                </div> <!-- / .row -->
+                                    {{--</div>--}}
+                                {{--</div> <!-- / .row -->--}}
 
-                            </a>
-                            <a class="list-group-item px-0" href="#!">
+                            {{--</a>--}}
+                            {{--<a class="list-group-item px-0" href="#!">--}}
 
-                                <div class="row">
-                                    <div class="col-auto">
+                                {{--<div class="row">--}}
+                                    {{--<div class="col-auto">--}}
 
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-sm">
-                                            <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-5.jpg" alt="..." class="avatar-img rounded-circle">
-                                        </div>
+                                        {{--<!-- Avatar -->--}}
+                                        {{--<div class="avatar avatar-sm">--}}
+                                            {{--<img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-5.jpg" alt="..." class="avatar-img rounded-circle">--}}
+                                        {{--</div>--}}
 
-                                    </div>
-                                    <div class="col ml--2">
+                                    {{--</div>--}}
+                                    {{--<div class="col ml--2">--}}
 
-                                        <!-- Content -->
-                                        <div class="small text-muted">
-                                            <strong class="text-body">Miyah Myles</strong> shared your post with <strong class="text-body">Ryu Duke</strong>, <strong class="text-body">Glen Rouse</strong>, and <strong class="text-body">3 others</strong>.
-                                        </div>
+                                        {{--<!-- Content -->--}}
+                                        {{--<div class="small text-muted">--}}
+                                            {{--<strong class="text-body">Miyah Myles</strong> shared your post with <strong class="text-body">Ryu Duke</strong>, <strong class="text-body">Glen Rouse</strong>, and <strong class="text-body">3 others</strong>.--}}
+                                        {{--</div>--}}
 
-                                    </div>
-                                    <div class="col-auto">
+                                    {{--</div>--}}
+                                    {{--<div class="col-auto">--}}
 
-                                        <small class="text-muted">
-                                            2m
-                                        </small>
+                                        {{--<small class="text-muted">--}}
+                                            {{--2m--}}
+                                        {{--</small>--}}
 
-                                    </div>
-                                </div> <!-- / .row -->
+                                    {{--</div>--}}
+                                {{--</div> <!-- / .row -->--}}
 
-                            </a>
-                            <a class="list-group-item px-0" href="#!">
+                            {{--</a>--}}
+                            {{--<a class="list-group-item px-0" href="#!">--}}
 
-                                <div class="row">
-                                    <div class="col-auto">
+                                {{--<div class="row">--}}
+                                    {{--<div class="col-auto">--}}
 
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-sm">
-                                            <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-6.jpg" alt="..." class="avatar-img rounded-circle">
-                                        </div>
+                                        {{--<!-- Avatar -->--}}
+                                        {{--<div class="avatar avatar-sm">--}}
+                                            {{--<img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-6.jpg" alt="..." class="avatar-img rounded-circle">--}}
+                                        {{--</div>--}}
 
-                                    </div>
-                                    <div class="col ml--2">
+                                    {{--</div>--}}
+                                    {{--<div class="col ml--2">--}}
 
-                                        <!-- Content -->
-                                        <div class="small text-muted">
-                                            <strong class="text-body">Ryu Duke</strong> reacted to your post with a 😍
-                                        </div>
+                                        {{--<!-- Content -->--}}
+                                        {{--<div class="small text-muted">--}}
+                                            {{--<strong class="text-body">Ryu Duke</strong> reacted to your post with a 😍--}}
+                                        {{--</div>--}}
 
-                                    </div>
-                                    <div class="col-auto">
+                                    {{--</div>--}}
+                                    {{--<div class="col-auto">--}}
 
-                                        <small class="text-muted">
-                                            2m
-                                        </small>
+                                        {{--<small class="text-muted">--}}
+                                            {{--2m--}}
+                                        {{--</small>--}}
 
-                                    </div>
-                                </div> <!-- / .row -->
+                                    {{--</div>--}}
+                                {{--</div> <!-- / .row -->--}}
 
-                            </a>
-                            <a class="list-group-item px-0" href="#!">
+                            {{--</a>--}}
+                            {{--<a class="list-group-item px-0" href="#!">--}}
 
-                                <div class="row">
-                                    <div class="col-auto">
+                                {{--<div class="row">--}}
+                                    {{--<div class="col-auto">--}}
 
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-sm">
-                                            <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-7.jpg" alt="..." class="avatar-img rounded-circle">
-                                        </div>
+                                        {{--<!-- Avatar -->--}}
+                                        {{--<div class="avatar avatar-sm">--}}
+                                            {{--<img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-7.jpg" alt="..." class="avatar-img rounded-circle">--}}
+                                        {{--</div>--}}
 
-                                    </div>
-                                    <div class="col ml--2">
+                                    {{--</div>--}}
+                                    {{--<div class="col ml--2">--}}
 
-                                        <!-- Content -->
-                                        <div class="small text-muted">
-                                            <strong class="text-body">Glen Rouse</strong> commented <blockquote class="text-body">“I don’t think this really makes sense to do without approval from Johnathan since he’s the one...” </blockquote>
-                                        </div>
+                                        {{--<!-- Content -->--}}
+                                        {{--<div class="small text-muted">--}}
+                                            {{--<strong class="text-body">Glen Rouse</strong> commented <blockquote class="text-body">“I don’t think this really makes sense to do without approval from Johnathan since he’s the one...” </blockquote>--}}
+                                        {{--</div>--}}
 
-                                    </div>
-                                    <div class="col-auto">
+                                    {{--</div>--}}
+                                    {{--<div class="col-auto">--}}
 
-                                        <small class="text-muted">
-                                            2m
-                                        </small>
+                                        {{--<small class="text-muted">--}}
+                                            {{--2m--}}
+                                        {{--</small>--}}
 
-                                    </div>
-                                </div> <!-- / .row -->
+                                    {{--</div>--}}
+                                {{--</div> <!-- / .row -->--}}
 
-                            </a>
-                            <a class="list-group-item px-0" href="#!">
+                            {{--</a>--}}
+                            {{--<a class="list-group-item px-0" href="#!">--}}
 
-                                <div class="row">
-                                    <div class="col-auto">
+                                {{--<div class="row">--}}
+                                    {{--<div class="col-auto">--}}
 
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-sm">
-                                            <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-8.jpg" alt="..." class="avatar-img rounded-circle">
-                                        </div>
+                                        {{--<!-- Avatar -->--}}
+                                        {{--<div class="avatar avatar-sm">--}}
+                                            {{--<img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-8.jpg" alt="..." class="avatar-img rounded-circle">--}}
+                                        {{--</div>--}}
 
-                                    </div>
-                                    <div class="col ml--2">
+                                    {{--</div>--}}
+                                    {{--<div class="col ml--2">--}}
 
-                                        <!-- Content -->
-                                        <div class="small text-muted">
-                                            <strong class="text-body">Grace Gross</strong> subscribed to you.
-                                        </div>
+                                        {{--<!-- Content -->--}}
+                                        {{--<div class="small text-muted">--}}
+                                            {{--<strong class="text-body">Grace Gross</strong> subscribed to you.--}}
+                                        {{--</div>--}}
 
-                                    </div>
-                                    <div class="col-auto">
+                                    {{--</div>--}}
+                                    {{--<div class="col-auto">--}}
 
-                                        <small class="text-muted">
-                                            2m
-                                        </small>
+                                        {{--<small class="text-muted">--}}
+                                            {{--2m--}}
+                                        {{--</small>--}}
 
-                                    </div>
-                                </div> <!-- / .row -->
+                                    {{--</div>--}}
+                                {{--</div> <!-- / .row -->--}}
 
-                            </a>
-                        </div>
+                            {{--</a>--}}
+                        {{--</div>--}}
 
-                    </div>
-                </div> <!-- / .dropdown-menu -->
+                    {{--</div>--}}
+                {{--</div> <!-- / .dropdown-menu -->--}}
 
             </div>
 
-            <!-- 登录注册 -->
-            <a href="{{route ('login')}}"><button class="btn btn-white sm">登录</button></a>
-            <a href="{{route ('register')}}"><button class="btn btn-white sm">注册</button></a>
+            <!-- Toggle -->
+            @auth()
+                <a href="#" class="avatar avatar-sm avatar-online dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="{{auth()->user()->ico}}" alt="..." class="avatar-img rounded-circle">
+                </a>
 
+                <!-- Menu -->
 
+                <div class="dropdown-menu dropdown-menu-right">
+                    @if(auth ()->user ()->superadmin==1)
+                    <a href="" class="dropdown-item">{{auth ()->user ()->name}}</a>
+
+                        <a href="{{route ('admin.index')}}" class="dropdown-item">后台管理</a>
+
+                    <hr class="dropdown-divider">
+                    @endif
+                    <a href="{{route ('user.logout')}}" class="dropdown-item">注销登录</a>
+                </div>
+             @else
+                <a href="{{route ('login')}}" class="btn btn-white btn-sm">登录</a>
+
+                <a href="{{route ('register')}}" class="btn btn-white btn-sm">注册</a>
+                @endauth
         </div>
 
         <!-- Collapse -->
@@ -1623,6 +1641,7 @@
 
 <!-- Theme JS -->
 <script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/js/theme.min.js"></script>
-
+@include('layouts.hdjs')
+@include('layouts.message')
 </body>
 </html>

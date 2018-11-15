@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Observers\UserObserver;
+use App\User;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
@@ -15,7 +17,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+    	//mysqle版本低于5.7.3 手册数据库中
 	    Schema::defaultStringLength(191);
+	    //注册观察者 手册 orm模型 中的observe
+	    User::observe(UserObserver::class);
     }
 
     /**

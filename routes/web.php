@@ -14,10 +14,20 @@
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-Route::get ('/','Home\IndexController@index');
+	Route::get ('/','Home\IndexController@index')->name ('home');
 	Route ::get ('/user/register', 'User\UserController@register') -> name ('register');
 	Route ::post ('/user/register', 'User\UserController@store') -> name ('register');
-
+	Route::get ('/user/reset','User\UserController@passwordreset')->name('user.reset');
 	Route ::get ('/user/login', 'User\UserController@login') -> name ('login');
-
+	Route ::post ('/user/login', 'User\UserController@loginform') -> name ('login.form');
+	Route::get ('/user/logout','User\UserController@ligout')->name ('user.logout');
 	Route::any ('/code/send','Util\CodeController@send')->name ('code.send');
+	Route::post ('/user/reset','User\UserController@reststore')->name ('user.store');
+	Route::get ('/admin/index','Admin\AdminController@index')->name ('admin.index');
+	Route::group(['middleware' => ['adminauth'],'prefix'=>'admin','namespace'=>'Admin','as'=>'admin.'],function(){
+		Route::get('index','AdminController@index')->name('index');
+	});
+
+	///Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');

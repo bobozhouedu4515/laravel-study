@@ -13,13 +13,17 @@ class CodeController extends Controller
 	public function send (Request $request)
 	{
 //		dd ($request -> all ());
+		//json数据格式的写法 直接通过键取得他的值
+//		dd($request->username);
 		$code=$this->random ();
 //		dd ($code);
 		$user=User::firstOrNew(['email'=>$request->username]);
-//		dd ($user);
+//	   dd ($user->toArray()) ;
 		$user->notify(new RegisterNotify($code));
 //		echo $code;
 		session()->put ('code',$code);
+//		dd ($request->session());
+//		dd (session_id ());
 		return ['code' => 1, 'message' => '验证码发送成功'];
 
 	}
