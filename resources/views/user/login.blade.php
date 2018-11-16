@@ -81,6 +81,11 @@
                    登录
                 </button>
 
+                   <div class="form-check">
+                       <input type="checkbox" class="form-check-input" name="remember" id="remember" value="1">
+                       <label class="form-check-label "  for="remember">记住我</label>
+                   </div>
+
                 <!-- Link -->
                 <div class="text-center">
                     <small class="text-muted text-center">
@@ -100,8 +105,8 @@
         </div>
     </div> <!-- / .row -->
 </div> <!-- / .container -->
-@include('layouts.hdjs');
-@include('layouts.message');
+@include('layouts.hdjs')
+@include('layouts.message')
 <!-- JAVASCRIPT
 ================================================== -->
 

@@ -5,17 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
-
     <link rel="stylesheet" href="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/fonts/feather/feather.min.css">
     <link rel="stylesheet" href="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/highlight/styles/vs2015.min.css">
     <link rel="stylesheet" href="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/quill/dist/quill.core.css">
     <link rel="stylesheet" href="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/select2/dist/css/select2.min.css">
     <link rel="stylesheet" href="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/flatpickr/dist/flatpickr.min.css">
-
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/css/theme.min.css">
-
-    <title>Dashkit</title>
+    <title>后台管理系统</title>
 </head>
 <body>
 
@@ -719,12 +716,12 @@
                 </a>
 
                 <!-- Menu -->
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="sidebarIcon">
-                    <a href="profile-posts.html" class="dropdown-item">Profile</a>
-                    <a href="settings.html" class="dropdown-item">Settings</a>
-                    <hr class="dropdown-divider">
-                    <a href="sign-in.html" class="dropdown-item">Logout</a>
-                </div>
+                {{--<div class="dropdown-menu dropdown-menu-right" aria-labelledby="sidebarIcon">--}}
+                    {{--<a href="" class="dropdown-item">{{auth ()->user ()->name}}</a>--}}
+                    {{--<a href="" class="dropdown-item">设置</a>--}}
+                    {{--<hr class="dropdown-divider">--}}
+                    {{--<a href="" class="dropdown-item">注销登录</a>--}}
+                {{--</div>--}}
 
             </div>
 
@@ -748,45 +745,45 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link " href="index.html">
-                        <i class="fe fe-home"></i> Dashboard
+                    <a class="nav-link " href="{{route ('home')}}">
+                        <i class="fe fe-home"></i> 返回主页
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#sidebarPages" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarPages">
-                        <i class="fe fe-file"></i> Pages
+                        <i class="fe fe-file"></i> 栏目管理
                     </a>
                     <div class="collapse " id="sidebarPages">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="#sidebarProfile" class="nav-link" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarProfile">
-                                    Profile
+                                <a href="{{route('category.create')}}" class="nav-link" data-toggle="" role="" aria-expanded="" aria-controls="sidebarProfile">
+                                   添加栏目
                                 </a>
                                 <div class="collapse " id="sidebarProfile">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
                                             <a href="profile-posts.html" class="nav-link ">
-                                                Posts
+                                                待开发
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="profile-groups.html" class="nav-link ">
-                                                Groups
+                                                待开发
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="profile-projects.html" class="nav-link ">
-                                                Projects
+                                                待开发
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="profile-files.html" class="nav-link ">
-                                                Files
+                                                待开发
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="profile-subscribers.html" class="nav-link ">
-                                                Subscribers
+                                                待开发
                                             </a>
                                         </li>
                                     </ul>
@@ -985,8 +982,8 @@
                     <div class="collapse show" id="sidebarLayouts">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="index.html" class="nav-link">
-                                    Sidenav
+                                <a href="{{route ('admin.member')}}" class="nav-link">
+                                    查看会员表
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -1205,8 +1202,8 @@
         <div class="container-fluid">
 
             <!-- Brand -->
-            <a class="navbar-brand mr-auto" href="index.html">
-                Dashboard
+            <a class="navbar-brand mr-auto" href="{{route ('admin.index')}}">
+                后台管理
             </a>
 
             <!-- Form -->
@@ -1703,15 +1700,15 @@
 
                     <!-- Toggle -->
                     <a href="#" class="avatar avatar-sm avatar-online dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-1.jpg" alt="..." class="avatar-img rounded-circle">
+                        <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/face.jpg" alt="..." class="avatar-img rounded-circle">
                     </a>
 
                     <!-- Menu -->
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a href="profile-posts.html" class="dropdown-item">Profile</a>
-                        <a href="settings.html" class="dropdown-item">Settings</a>
+                        <a href="profile-posts.html" class="dropdown-item">{{auth ()->user ()->name}}</a>
+                        <a href="settings.html" class="dropdown-item">设置</a>
                         <hr class="dropdown-divider">
-                        <a href="sign-in.html" class="dropdown-item">Logout</a>
+                        <a href="sign-in.html" class="dropdown-item">注销登录</a>
                     </div>
 
                 </div>

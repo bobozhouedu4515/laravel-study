@@ -29,7 +29,9 @@ class User extends Authenticatable
     ];
     public function getIcoAttribute ( $key )
     {
-//    	echo  11;
+		//注意测试数据完成后及时注释掉 不然会影响后面的输出结果
+	    //当检测到浏览器中有表内的谋个字段的时候运行如果$key有值就使用$key
+	    //否者给后面的结果
     	return $key?:asset ('org/imgas/face.jpg');
     }
 }

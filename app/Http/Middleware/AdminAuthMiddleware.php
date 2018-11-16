@@ -17,7 +17,8 @@ class AdminAuthMiddleware
     {
 
 	    if(!auth()->check() || auth()->user()->superadmin != 1){
-		    return redirect()->route('home');
+
+		    return redirect()->route('home')->with ('danger','页面不存在');
 	    }
 
 

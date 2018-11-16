@@ -17,7 +17,7 @@
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/css/theme.min.css">
 
-    <title>Dashkit</title>
+    <title>laravel</title>
 </head>
 <body>
 
@@ -532,15 +532,16 @@
                 </a>
 
                 <!-- Menu -->
-
+                {{--{{auth ()->user ()->id}}--}}
                 <div class="dropdown-menu dropdown-menu-right">
-                    @if(auth ()->user ()->superadmin==1)
                     <a href="" class="dropdown-item">{{auth ()->user ()->name}}</a>
+                 @can('view',Auth::user () )
+                    {{--<a href="" class="dropdown-item">{{auth ()->user ()->name}}</a>--}}
 
                         <a href="{{route ('admin.index')}}" class="dropdown-item">后台管理</a>
 
                     <hr class="dropdown-divider">
-                    @endif
+                    @endcan
                     <a href="{{route ('user.logout')}}" class="dropdown-item">注销登录</a>
                 </div>
              @else
@@ -731,8 +732,8 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="topnavLayouts">
                         <li>
-                            <a class="dropdown-item" href="index.html">
-                                Sidenav
+                            <a class="dropdown-item" href="{{route ('admin.member')}}">
+                                查看会员表
                             </a>
                         </li>
                         <li>
