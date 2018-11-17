@@ -26,9 +26,11 @@
 	Route::get ('/admin/index','Admin\AdminController@index')->name ('admin.index');
 	Route::group(['middleware' => ['adminauth'],'prefix'=>'admin','namespace'=>'Admin','as'=>'admin.'],function(){
 		Route::get('index','AdminController@index')->name('index');
+		Route::resource('category','CategoryController');
+		Route::get ('member','AdminController@find')->name ('member');
 	});
-	Route::get ('admin/member','Admin\AdminController@find')->name ('admin.member');
-	Route::resource('/category','Admin\CategoryController');
+
+
 
 	///Auth::routes();
 

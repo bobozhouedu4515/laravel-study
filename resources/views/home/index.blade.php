@@ -32,8 +32,8 @@
         </button>
 
         <!-- Brand -->
-        <a class="navbar-brand mr-auto" href="index.html">
-            <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/logo.svg" alt="..." class="navbar-brand-img">
+        <a class="navbar-brand mr-auto" href="#">
+            <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/vp.png" alt="..." class="navbar-brand-img">
         </a>
 
         <!-- Form -->
@@ -562,8 +562,8 @@
             <!-- Navigation -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">
-                        Dashboard
+                    <a class="nav-link" href="{{route ('home')}}">
+                        返回首页
                     </a>
                 </li>
                 <li class="nav-item dropdown">

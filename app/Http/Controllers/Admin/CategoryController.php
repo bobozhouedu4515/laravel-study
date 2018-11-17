@@ -43,7 +43,7 @@ class CategoryController extends Controller
     {
 
         Category::create($request->all ());
-        return redirect ()->route ('category.index')->with ('success','添加成功');
+        return redirect ()->route ('admin.category.index')->with ('success','添加成功');
     }
 
     /**
@@ -84,7 +84,7 @@ class CategoryController extends Controller
 	    //$category是原数据 $request 是新的提交的数据
     	$category->update ($request->all ());
 	    //dd ($category);
-	    return redirect ()->route ('category.index')->with ('success','修改成功');
+	    return redirect ()->route ('admin.category.index')->with ('success','修改成功');
     }
 
     /**
@@ -95,6 +95,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-
+		$category->delete ();
+		return redirect ()->route ('admin.category.index')->with ('success','删除成功');
     }
 }

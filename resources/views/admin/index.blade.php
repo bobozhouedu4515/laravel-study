@@ -29,7 +29,7 @@
 
                             <!-- Title -->
                             <h4 class="card-header-title" id="exampleModalCenterTitle">
-                                Add a member
+
                             </h4>
 
                         </div>
@@ -48,7 +48,7 @@
                     <!-- Form -->
                     <form>
                         <div class="input-group input-group-flush input-group-merge">
-                            <input type="search" class="form-control form-control-prepended search" placeholder="Search">
+                            <input type="search" class="form-control form-control-prepended search" placeholder="搜索">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
                                     <span class="fe fe-search"></span>
@@ -68,7 +68,7 @@
                                 <div class="col-auto">
 
                                     <!-- Avatar -->
-                                    <a href="profile-posts.html" class="avatar">
+                                    <a href="#" class="avatar">
                                         <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-5.jpg" alt="..." class="avatar-img rounded-circle">
                                     </a>
 
@@ -77,7 +77,7 @@
 
                                     <!-- Title -->
                                     <h4 class="mb-1 name">
-                                        <a href="profile-posts.html">Miyah Myles</a>
+                                        <a href="#">Miyah Myles</a>
                                     </h4>
 
                                     <!-- Time -->
@@ -103,7 +103,7 @@
                                 <div class="col-auto">
 
                                     <!-- Avatar -->
-                                    <a href="profile-posts.html" class="avatar">
+                                    <a href="#" class="avatar">
                                         <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-6.jpg" alt="..." class="avatar-img rounded-circle">
                                     </a>
 
@@ -112,7 +112,7 @@
 
                                     <!-- Title -->
                                     <h4 class="mb-1 name">
-                                        <a href="profile-posts.html">Ryu Duke</a>
+                                        <a href="#">Ryu Duke</a>
                                     </h4>
 
                                     <!-- Time -->
@@ -138,7 +138,7 @@
                                 <div class="col-auto">
 
                                     <!-- Avatar -->
-                                    <a href="profile-posts.html" class="avatar">
+                                    <a href="#" class="avatar">
                                         <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-7.jpg" alt="..." class="avatar-img rounded-circle">
                                     </a>
 
@@ -147,7 +147,7 @@
 
                                     <!-- Title -->
                                     <h4 class="mb-1 name">
-                                        <a href="profile-posts.html">Glen Rouse</a>
+                                        <a href="#">Glen Rouse</a>
                                     </h4>
 
                                     <!-- Time -->
@@ -173,7 +173,7 @@
                                 <div class="col-auto">
 
                                     <!-- Avatar -->
-                                    <a href="profile-posts.html" class="avatar">
+                                    <a href="#" class="avatar">
                                         <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-8.jpg" alt="..." class="avatar-img rounded-circle">
                                     </a>
 
@@ -182,7 +182,7 @@
 
                                     <!-- Title -->
                                     <h4 class="mb-1 name">
-                                        <a href="profile-posts.html">Grace Gross</a>
+                                        <a href="#">Grace Gross</a>
                                     </h4>
 
                                     <!-- Time -->
@@ -231,7 +231,7 @@
                 <!-- List group -->
                 <div class="my--3">
                     <div class="list-group list-group-flush list">
-                        <a href="team-overview.html" class="list-group-item px-0">
+                        <a href="#" class="list-group-item px-0">
                             <div class="row align-items-center">
                                 <div class="col-auto">
 
@@ -256,7 +256,7 @@
                                 </div>
                             </div> <!-- / .row -->
                         </a>
-                        <a href="team-overview.html" class="list-group-item px-0">
+                        <a href="#" class="list-group-item px-0">
                             <div class="row align-items-center">
                                 <div class="col-auto">
 
@@ -281,7 +281,7 @@
                                 </div>
                             </div> <!-- / .row -->
                         </a>
-                        <a href="project-overview.html" class="list-group-item px-0">
+                        <a href="#" class="list-group-item px-0">
 
                             <div class="row align-items-center">
                                 <div class="col-auto">
@@ -308,7 +308,7 @@
                             </div> <!-- / .row -->
 
                         </a>
-                        <a href="project-overview.html" class="list-group-item px-0">
+                        <a href="#" class="list-group-item px-0">
 
                             <div class="row align-items-center">
                                 <div class="col-auto">
@@ -335,7 +335,7 @@
                             </div> <!-- / .row -->
 
                         </a>
-                        <a href="project-overview.html" class="list-group-item px-0">
+                        <a href="#" class="list-group-item px-0">
 
                             <div class="row align-items-center">
                                 <div class="col-auto">
@@ -362,7 +362,7 @@
                             </div> <!-- / .row -->
 
                         </a>
-                        <a href="profile-posts.html" class="list-group-item px-0">
+                        <a href="#" class="list-group-item px-0">
 
                             <div class="row align-items-center">
                                 <div class="col-auto">
@@ -389,7 +389,7 @@
                             </div> <!-- / .row -->
 
                         </a>
-                        <a href="profile-posts.html" class="list-group-item px-0">
+                        <a href="#" class="list-group-item px-0">
 
                             <div class="row align-items-center">
                                 <div class="col-auto">
@@ -697,8 +697,8 @@
         </button>
 
         <!-- Brand -->
-        <a class="navbar-brand" href="index.html">
-            <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/logo.svg" class="navbar-brand-img
+        <a class="navbar-brand" href="#">
+            <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/vp.png" class="navbar-brand-img
           mx-auto" alt="...">
         </a>
 
@@ -756,13 +756,13 @@
                     <div class="collapse " id="sidebarPages">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{route('category.create')}}" class="nav-link" data-toggle="" role="" aria-expanded="" aria-controls="sidebarProfile">
+                                <a href="{{route('admin.category.create')}}" class="nav-link" data-toggle="" role="" aria-expanded="" aria-controls="sidebarProfile">
                                    添加栏目
                                 </a>
                                 <div class="collapse " id="sidebarProfile">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="profile-posts.html" class="nav-link ">
+                                            <a href="#" class="nav-link ">
                                                 待开发
                                             </a>
                                         </li>
@@ -796,7 +796,7 @@
                                 <div class="collapse " id="sidebarProject">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="project-overview.html" class="nav-link ">
+                                            <a href="#" class="nav-link ">
                                                 Overview
                                             </a>
                                         </li>
@@ -825,7 +825,7 @@
                                 <div class="collapse " id="sidebarTeam">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="team-overview.html" class="nav-link ">
+                                            <a href="#" class="nav-link ">
                                                 Overview
                                             </a>
                                         </li>
@@ -877,7 +877,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#sidebarAuth" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuth">
-                        <i class="fe fe-user"></i> Authentication
+                        <i class="fe fe-user"></i> 待开发
                     </a>
                     <div class="collapse" id="sidebarAuth">
                         <ul class="nav nav-sm flex-column">
@@ -977,7 +977,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#sidebarLayouts" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="sidebarLayouts">
-                        <i class="fe fe-layout"></i> Layouts
+                        <i class="fe fe-layout"></i> 会员管理系统
                     </a>
                     <div class="collapse show" id="sidebarLayouts">
                         <ul class="nav nav-sm flex-column">
@@ -1202,7 +1202,7 @@
         <div class="container-fluid">
 
             <!-- Brand -->
-            <a class="navbar-brand mr-auto" href="{{route ('admin.index')}}">
+            <a class="navbar-brand mr-auto" href="{{route ('admin.category.index')}}">
                 后台管理
             </a>
 
@@ -1224,7 +1224,7 @@
 
                             <!-- List group -->
                             <div class="list-group list-group-flush list my--3">
-                                <a href="team-overview.html" class="list-group-item px-0">
+                                <a href="#" class="list-group-item px-0">
                                     <div class="row align-items-center">
                                         <div class="col-auto">
 
@@ -1249,7 +1249,7 @@
                                         </div>
                                     </div> <!-- / .row -->
                                 </a>
-                                <a href="team-overview.html" class="list-group-item px-0">
+                                <a href="#" class="list-group-item px-0">
                                     <div class="row align-items-center">
                                         <div class="col-auto">
 
@@ -1274,7 +1274,7 @@
                                         </div>
                                     </div> <!-- / .row -->
                                 </a>
-                                <a href="project-overview.html" class="list-group-item px-0">
+                                <a href="#" class="list-group-item px-0">
 
                                     <div class="row align-items-center">
                                         <div class="col-auto">
@@ -1301,7 +1301,7 @@
                                     </div> <!-- / .row -->
 
                                 </a>
-                                <a href="project-overview.html" class="list-group-item px-0">
+                                <a href="#" class="list-group-item px-0">
 
                                     <div class="row align-items-center">
                                         <div class="col-auto">
@@ -1328,7 +1328,7 @@
                                     </div> <!-- / .row -->
 
                                 </a>
-                                <a href="project-overview.html" class="list-group-item px-0">
+                                <a href="#" class="list-group-item px-0">
 
                                     <div class="row align-items-center">
                                         <div class="col-auto">
@@ -1355,7 +1355,7 @@
                                     </div> <!-- / .row -->
 
                                 </a>
-                                <a href="profile-posts.html" class="list-group-item px-0">
+                                <a href="#" class="list-group-item px-0">
 
                                     <div class="row align-items-center">
                                         <div class="col-auto">
@@ -1382,7 +1382,7 @@
                                     </div> <!-- / .row -->
 
                                 </a>
-                                <a href="profile-posts.html" class="list-group-item px-0">
+                                <a href="#" class="list-group-item px-0">
 
                                     <div class="row align-items-center">
                                         <div class="col-auto">
@@ -1705,7 +1705,7 @@
 
                     <!-- Menu -->
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a href="profile-posts.html" class="dropdown-item">{{auth ()->user ()->name}}</a>
+                        <a href="#" class="dropdown-item">{{auth ()->user ()->name}}</a>
                         <a href="settings.html" class="dropdown-item">设置</a>
                         <hr class="dropdown-divider">
                         <a href="sign-in.html" class="dropdown-item">注销登录</a>
@@ -2062,7 +2062,7 @@
                             <div class="col-auto">
 
                                 <!-- Avatar -->
-                                <a href="project-overview.html" class="avatar avatar-4by3">
+                                <a href="#" class="avatar avatar-4by3">
                                     <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/projects/project-1.jpg" alt="..." class="avatar-img rounded">
                                 </a>
 
@@ -2071,7 +2071,7 @@
 
                                 <!-- Title -->
                                 <h4 class="card-title mb-1">
-                                    <a href="project-overview.html">Homepage Redesign</a>
+                                    <a href="#">Homepage Redesign</a>
                                 </h4>
 
                                 <!-- Time -->
@@ -2110,7 +2110,7 @@
                             <div class="col-auto">
 
                                 <!-- Avatar -->
-                                <a href="project-overview.html" class="avatar avatar-4by3">
+                                <a href="#" class="avatar avatar-4by3">
                                     <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/projects/project-2.jpg" alt="..." class="avatar-img rounded">
                                 </a>
 
@@ -2119,7 +2119,7 @@
 
                                 <!-- Title -->
                                 <h4 class="card-title mb-1">
-                                    <a href="project-overview.html">Travels & Time</a>
+                                    <a href="#">Travels & Time</a>
                                 </h4>
 
                                 <!-- Time -->
@@ -2158,7 +2158,7 @@
                             <div class="col-auto">
 
                                 <!-- Avatar -->
-                                <a href="project-overview.html" class="avatar avatar-4by3">
+                                <a href="#" class="avatar avatar-4by3">
                                     <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/projects/project-3.jpg" alt="..." class="avatar-img rounded">
                                 </a>
 
@@ -2167,7 +2167,7 @@
 
                                 <!-- Title -->
                                 <h4 class="card-title mb-1">
-                                    <a href="project-overview.html">Safari Exploration</a>
+                                    <a href="#">Safari Exploration</a>
                                 </h4>
 
                                 <!-- Time -->
@@ -2206,7 +2206,7 @@
                             <div class="col-auto">
 
                                 <!-- Avatar -->
-                                <a href="project-overview.html" class="avatar avatar-4by3">
+                                <a href="#" class="avatar avatar-4by3">
                                     <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/projects/project-5.jpg" alt="..." class="avatar-img rounded">
                                 </a>
 
@@ -2215,7 +2215,7 @@
 
                                 <!-- Title -->
                                 <h4 class="card-title mb-1">
-                                    <a href="project-overview.html">Personal Site</a>
+                                    <a href="#">Personal Site</a>
                                 </h4>
 
                                 <!-- Time -->
@@ -2321,16 +2321,16 @@
                                 </td>
                                 <td class="text-right">
                                     <div class="avatar-group">
-                                        <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Dianna Smiley">
+                                        <a href="#" class="avatar avatar-xs" data-toggle="tooltip" title="Dianna Smiley">
                                             <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-1.jpg" class="avatar-img rounded-circle border border-white" alt="...">
                                         </a>
-                                        <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Ab Hadley">
+                                        <a href="#" class="avatar avatar-xs" data-toggle="tooltip" title="Ab Hadley">
                                             <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-2.jpg" class="avatar-img rounded-circle border border-white" alt="...">
                                         </a>
-                                        <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Adolfo Hess">
+                                        <a href="#" class="avatar avatar-xs" data-toggle="tooltip" title="Adolfo Hess">
                                             <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-3.jpg" class="avatar-img rounded-circle border border-white" alt="...">
                                         </a>
-                                        <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="Daniela Dewitt">
+                                        <a href="#" class="avatar avatar-xs" data-toggle="tooltip" title="Daniela Dewitt">
                                             <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-4.jpg" class="avatar-img rounded-circle border border-white" alt="...">
                                         </a>
                                     </div>

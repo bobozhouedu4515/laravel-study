@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/flatpickr/dist/flatpickr.min.css">
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/css/theme.min.css">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
     <title>后台管理系统</title>
 </head>
 <body>
@@ -697,7 +699,7 @@
 
         <!-- Brand -->
         <a class="navbar-brand" href="index.html">
-            <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/logo.svg" class="navbar-brand-img
+            <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/vp.png" class="navbar-brand-img
           mx-auto" alt="...">
         </a>
 
@@ -744,7 +746,7 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link " href="{{route ('category.index')}}">
+                    <a class="nav-link " href="{{route ('admin.category.index')}}">
                         <i class="fe fe-home"></i> 返回主页
                     </a>
                 </li>
@@ -755,7 +757,7 @@
                     <div class="collapse " id="sidebarPages">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{route ('category.create')}}" class="nav-link" data-toggle="" role="button" aria-expanded="false" aria-controls="sidebarProfile">
+                                <a href="{{route ('admin.category.create')}}" class="nav-link" data-toggle="" role="button" aria-expanded="false" aria-controls="sidebarProfile">
                                     添加栏目
                                 </a>
 
@@ -877,7 +879,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#sidebarAuth" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuth">
-                        <i class="fe fe-user"></i> Authentication
+                        <i class="fe fe-user"></i> 待开发
                     </a>
                     <div class="collapse" id="sidebarAuth">
                         <ul class="nav nav-sm flex-column">
@@ -977,7 +979,7 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#sidebarLayouts" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="sidebarLayouts">
-                        <i class="fe fe-layout"></i> Layouts
+                        <i class="fe fe-layout"></i> 会员管理系统
                     </a>
                     <div class="collapse show" id="sidebarLayouts">
                         <ul class="nav nav-sm flex-column">
@@ -1042,12 +1044,12 @@
             <ul class="navbar-nav mb-md-3">
                 <li class="nav-item">
                     <a class="nav-link " href="getting-started.html">
-                        <i class="fe fe-clipboard"></i> Getting started
+                        <i class="fe fe-clipboard"></i> 待开发
                     </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#sidebarComponents" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarComponents">
-                        <i class="fe fe-book-open"></i> Components
+                        <i class="fe fe-book-open"></i> 待开发
                     </a>
                     <div class="collapse " id="sidebarComponents">
                         <ul class="nav nav-sm flex-column">
@@ -1181,7 +1183,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " href="changelog.html">
-                        <i class="fe fe-git-branch"></i> Changelog <span class="badge badge-primary ml-auto">v1.1.2</span>
+                        <i class="fe fe-git-branch"></i> 待开发 <span class="badge badge-primary ml-auto">v1.1.2</span>
                     </a>
                 </li>
             </ul>

@@ -24,12 +24,16 @@ class CatetoryRequest extends FormRequest
     public function rules()
     {
 //    	dd ($this->route ('category')->id);
-//    	dd ($this-
-	    $id=($this->route ('category')->id);
-        return [
-				'title'=>'required|unique:categories,title,'.$id,
-	            'icon'=>'required'
-        ];
+//    	dd ($this-route
+	    $id=($this->route ('category'))?($this->route ('category')->id):null;
+
+
+
+		    return [
+		    'title' => 'required|unique:categories,title,' . $id,
+		    'icon' => 'required'
+		    ];
+
     }
     public function messages ()
     {

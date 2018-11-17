@@ -20,9 +20,6 @@ class AdminAuthMiddleware
 
 		    return redirect()->route('home')->with ('danger','页面不存在');
 	    }
-
-
-
 	    return $next($request);
     }
 }
