@@ -78,13 +78,13 @@
 		public function reststore ( RestRequest $request )
 		{
 
-//          dd ($request->all ());
+			//          dd ($request->all ());
 			$email = $request -> email;
 			//email 第一个是 表中的字段  $email是表单提交的email,
 			//从表单中找出email匹配的数据,然后修改他的密保 保存
-			$user = User ::where ('email', $email) -> first ();
+			$user = User ::where('email', $email)->first();
 			//如果找不加返回null
-//	        dd ($user);
+//				        dd ($user->toArray());
 			if ($user) {
 				//把提交过来的新密码
 				$user -> password = bcrypt ($request -> password);

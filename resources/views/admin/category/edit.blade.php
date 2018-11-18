@@ -34,8 +34,6 @@
                     $('#icon').addClass(icon)
                 })
             })
-
         }
-
     </script>
 @endpush

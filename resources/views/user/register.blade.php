@@ -132,8 +132,8 @@
 
 {{--<script src="{{asset ('org')}}/hdjs/require.js"></script>--}}
 {{--<script src="{{asset ('org')}}/hdjs/config.js"></script>--}}
-@include('layouts.hdjs');
-@include('layouts.message');
+@include('layouts.hdjs')
+@include('layouts.message')
 <script>
     require(['hdjs','bootstrap'], function (hdjs) {
         let option = {

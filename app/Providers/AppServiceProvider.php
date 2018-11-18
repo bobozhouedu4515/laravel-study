@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
+use App\Observers\CategoryObserver;
 use App\Observers\UserObserver;
 use App\User;
 use Illuminate\Support\ServiceProvider;
@@ -21,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
 	    Schema::defaultStringLength(191);
 	    //注册观察者 手册 orm模型 中的observe
 	    User::observe(UserObserver::class);
+	    Category ::observe (CategoryObserver::class);
     }
 
     /**

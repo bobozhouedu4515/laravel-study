@@ -27,6 +27,7 @@ class RestRequest extends FormRequest
 
         'email'=>'email',
         'password'=>'required|min:3|confirmed',
+
         'code'=>[
         'required',
         function($attribute,$value,$fail){

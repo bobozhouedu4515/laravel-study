@@ -43,6 +43,15 @@
             </div>
         </div>
         <div class="tb">
+            {{--<ul class="pagination">--}}
+
+                {{--<li class="page-item"><a class="page-link" href="#!">上一页</a></li>--}}
+                {{--<li class="page-item"><a class="page-link" href="#!">1</a></li>--}}
+                {{--<li class="page-item"><a class="page-link" href="#!">2</a></li>--}}
+                {{--<li class="page-item"><a class="page-link" href="#!">3</a></li>--}}
+                {{--<li class="page-item"><a class="page-link" href="#!">下一页</a></li>--}}
+            {{--</ul>--}}
+            {{$categories}}
             <table class="table table-nowrap">
                 <thead>
                 <tr>
@@ -56,9 +65,9 @@
                 <tbody>
                 @foreach($categories as $category)
                     <tr>
-                        <th scope="row">{{$category->id}}</th>
-                        <td>{{$category->title}}</td>
-                        <td><span class="{{$category->icon}}"></span></td>
+                        <th scope="row">{{$category['id']}}</th>
+                        <td>{{$category['title']}}</td>
+                        <td><span class="{{$category['icon']}}"></span></td>
                         <td>
                             <a class=" btn btn-success" href="{{route ('admin.category.edit',$category)}}">编辑</a>
                         </td>
@@ -72,6 +81,7 @@
                 @endforeach
                 </tbody>
             </table>
+
         </div>
     </div>
 @endsection

@@ -7,9 +7,9 @@ use App\Http\Controllers\Controller;
 
 class IndexController extends Controller
 {
-	public function index ()
+	public function index (Request $request)
 	{
-
+//	echo($request->session ()->get ('success'));
 		return view('home.index');
 	}
 }

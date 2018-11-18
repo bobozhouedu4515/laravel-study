@@ -14,10 +14,11 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-    	$categories=Category::all ();
-        return view ('admin.category.index',compact ('categories'));
+    	$categories=Category::paginate(1);
+//	    dd ($categories);
+         return view ('admin.category.index',compact ('categories'));
     }
 
     /**
@@ -81,9 +82,14 @@ class CategoryController extends Controller
 //    	dd ($request->all ());
 //	    dd ($category);
 //	    $this->route('')
+//------->save和update的方法区别<------------
+	    $category->title=$request->title;
+	    $category->icon=$request->icon;
+	    $category->save();
+//-------->end<-------------------------------
 	    //$category是原数据 $request 是新的提交的数据
-    	$category->update ($request->all ());
-	    //dd ($category);
+//    	$res=$category->update ($request->all ());
+//	    dd ($res);
 	    return redirect ()->route ('admin.category.index')->with ('success','修改成功');
     }
 

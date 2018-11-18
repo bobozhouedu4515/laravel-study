@@ -1639,7 +1639,6 @@
                                             <div class="avatar avatar-sm">
                                                 <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-7.jpg" alt="..." class="avatar-img rounded-circle">
                                             </div>
-
                                         </div>
                                         <div class="col ml--2">
 
@@ -1706,9 +1705,9 @@
                     <!-- Menu -->
                     <div class="dropdown-menu dropdown-menu-right">
                         <a href="#" class="dropdown-item">{{auth ()->user ()->name}}</a>
-                        <a href="settings.html" class="dropdown-item">设置</a>
+                        <a href="#" class="dropdown-item">设置</a>
                         <hr class="dropdown-divider">
-                        <a href="sign-in.html" class="dropdown-item">注销登录</a>
+                        <a href="{{route ('user.logout')}}" class="dropdown-item">注销登录</a>
                     </div>
 
                 </div>

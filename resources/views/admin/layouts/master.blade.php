@@ -1200,8 +1200,8 @@
 @include('layouts.hdjs')
 @include('layouts.message')
 <script>
-   require(['bootstrap'])
-</script>
+    require(['bootstrap'])
+ </script>
 @stack('js')
 </body>
 </html>
