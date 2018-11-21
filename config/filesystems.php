@@ -43,9 +43,13 @@ return [
 
     'disks' => [
 
-        'local' => [
-            'driver' => 'local',
-            'root' => storage_path('app'),
+//        'local' => [
+//            'driver' => 'local',
+//            'root' => storage_path('app'),
+//        ],
+        'attachment'=>[
+            'driver'=>'local',
+	        'root'=>public_path()
         ],
 
         'public' => [

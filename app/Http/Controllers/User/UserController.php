@@ -83,6 +83,7 @@
 			//email 第一个是 表中的字段  $email是表单提交的email,
 			//从表单中找出email匹配的数据,然后修改他的密保 保存
 			$user = User ::where('email', $email)->first();
+//			dd($user->toArray());
 			//如果找不加返回null
 //				        dd ($user->toArray());
 			if ($user) {

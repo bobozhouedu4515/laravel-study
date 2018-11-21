@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Attachment;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','email_verified_at',
+        'name', 'email', 'password','email_verified_at','ico'
     ];
 
     /**
@@ -34,4 +35,9 @@ class User extends Authenticatable
 	    //否者给后面的结果
     	return $key?:asset ('org/imgas/face.jpg');
     }
+
+	public function attachment ()
+	{
+		return $this -> hasMany (Attachment::class);
+	}
 }

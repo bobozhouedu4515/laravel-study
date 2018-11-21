@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class CatetoresTableSeeder extends Seeder
+class ArticleTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class CatetoresTableSeeder extends Seeder
      */
     public function run()
     {
-	   factory (CatetoresTableSeeder::class,20)->create ();
+		factory (\App\Models\Article::class,100)->create();
     }
 }

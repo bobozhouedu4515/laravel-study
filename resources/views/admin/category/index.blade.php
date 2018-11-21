@@ -13,8 +13,8 @@
                         </h1>
                     </div>
                     <div class="col-auto">
-                        <a href="{{route ('admin.index')}}" class="btn btn-primary">
-                            返回首页
+                        <a href="{{route ('home')}}" class="btn btn-primary">
+                            退出后台
                         </a>
                     </div>
                 </div>

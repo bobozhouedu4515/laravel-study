@@ -1,19 +1,4 @@
 <?php
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 	Route::get ('/','Home\IndexController@index')->name ('home');
 	Route ::get ('/user/register', 'User\UserController@register') -> name ('register');
 	Route ::post ('/user/register', 'User\UserController@store') -> name ('register');
@@ -23,15 +8,28 @@
 	Route::get ('/user/logout','User\UserController@ligout')->name ('user.logout');
 	Route::any ('/code/send','Util\CodeController@send')->name ('code.send');
 	Route::post ('/user/reset','User\UserController@reststore')->name ('user.store');
-	Route::get ('/admin/index','Admin\AdminController@index')->name ('admin.index');
+//会员路由
+Route::group (['prefix'=>'member','namespace'=>'Member', 'as'=>'member.'],function(){
+	Route ::resource ('user', 'UserController');
+});
+//工具类
+	Route::group (['prefix'=>'util','namespace'=>'Util','as'=>'util.'],function(){
+		Route::any ('uploader','UploadController@uploader')->name ('uploader');
+		Route ::any ('fileslists', 'UploadController@filesLists') -> name ('fileslists');
+	});
+
+
+//	Route::get ('/admin/index','Admin\AdminController@index')->name ('admin.index');
+	//后台中间件控制的路由
 	Route::group(['middleware' => ['adminauth'],'prefix'=>'admin','namespace'=>'Admin','as'=>'admin.'],function(){
 		Route::get('index','AdminController@index')->name('index');
 		Route::resource('category','CategoryController');
 		Route::get ('member','AdminController@find')->name ('member');
 	});
+//前台文章管理路由zu
+	Route::group(['prefix'=>'home','namespace'=>'Home', 'as'=>'home'],function(){
+		Route::get ('article/index','ArticleController@index')->name ('.article.index');
+		Route::resource ('article','ArticleController');
+	});
 
 
-
-	///Auth::routes();
-
-//Route::get('/home', 'HomeController@index')->name('home');

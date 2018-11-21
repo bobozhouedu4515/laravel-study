@@ -18,8 +18,8 @@ class UserPolicy
      */
     public function view(User $user, User $model)
     {
-//	    dd ($user);
-//        echo $user;
+//	          dd ($user);
+//           echo $user;
     	//编写策略$user 就是当前登录的用户 $model????
     	return $user->superadmin==1;
         //
@@ -83,4 +83,16 @@ class UserPolicy
     {
         //
     }
+
+	public function isMine (User $user,User $model)
+	{
+//		dump ($model);
+//		dd ($user);
+		return $user->id==$model->id;
+	}
+
+	public function noMine (User $user,User $model)
+	{
+		return $user->id!==$model->id;
+	}
 }

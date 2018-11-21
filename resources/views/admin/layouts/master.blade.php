@@ -698,7 +698,7 @@
         </button>
 
         <!-- Brand -->
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="#!">
             <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/vp.png" class="navbar-brand-img
           mx-auto" alt="...">
         </a>
@@ -714,6 +714,7 @@
                     <div class="avatar avatar-sm avatar-online">
                         <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-1.jpg" class="avatar-img rounded-circle" alt="...">
                     </div>
+
                 </a>
 
                 <!-- Menu -->
@@ -743,11 +744,11 @@
                 </div>
             </form>
 
-            <!-- Navigation -->
+            <!-- 右侧边栏 -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link " href="{{route ('admin.category.index')}}">
-                        <i class="fe fe-home"></i> 返回主页
+                    <a class="nav-link " href="{{route ('home')}}">
+                        <i class="fe fe-home"></i> 主页
                     </a>
                 </li>
                 <li class="nav-item">
@@ -764,27 +765,27 @@
                                 <div class="collapse " id="sidebarProfile">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="profile-posts.html" class="nav-link ">
+                                            <a href="#!" class="nav-link ">
                                                 待开发
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="profile-groups.html" class="nav-link ">
+                                            <a href="#!" class="nav-link ">
                                                 待开发
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="profile-projects.html" class="nav-link ">
+                                            <a href="#!" class="nav-link ">
                                                 待开发
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="profile-files.html" class="nav-link ">
+                                            <a href="#!" class="nav-link ">
                                                 待开发
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="profile-subscribers.html" class="nav-link ">
+                                            <a href="#!" class="nav-link ">
                                                 待开发
                                             </a>
                                         </li>
