@@ -40,4 +40,15 @@ class User extends Authenticatable
 	{
 		return $this -> hasMany (Attachment::class);
 	}
+
+	public function fans ()
+	{
+		return $this -> belongsToMany (User::class, 'followers', 'user_id', 'followings_id');
+	}
+
+	public function followings ()
+	{
+		return $this -> belongsToMany (User::class, 'followers', 'followings_id', 'user_id');
+
+	}
 }

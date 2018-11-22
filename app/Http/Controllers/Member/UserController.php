@@ -56,32 +56,24 @@
 			return view ('member.user.show', compact ('user', 'articles'));
 		}
 
-		/**
-		 * Show the form for editing the specified resource.
-		 *
-		 * @param  \App\User $user
-		 *
-		 * @return \Illuminate\Http\Response
-		 */
+
 		public function edit ( User $user, Request $request )
 		{
+//			dd ($user);
 			$this->authorize ('isMine',$user);
 			$type = $request -> query ('type');
-//	    dd ($type);
-			return view ('member.user.edit_' . $type, compact ('user'));
+			$fans = $user -> fans () -> paginate (5);
+			$followings = $user -> followings () -> paginate (5);
+
+
+
+			return view ('member.user.edit_' . $type, compact ('user', 'fans', 'followings'));
 		}
 
-		/**
-		 * Update the specified resource in storage.
-		 *
-		 * @param  \Illuminate\Http\Request $request
-		 * @param  \App\User                $user
-		 *
-		 * @return \Illuminate\Http\Response
-		 */
+
 		public function update ( Request $request, User $user )
 		{
-			$this->authorize ('isMine',$user);
+			$this -> authorize ('isMine', $user);
 //	        dd ($request -> all ());
 //			dd ($user);
 //			$data使用是一个数组 不可以链式操作
@@ -98,26 +90,22 @@
 			'name.required' => '请输入昵称'
 
 			]);
-			if ($request->password){
-				$data ['password']  = bcrypt ($data ['password']);
+			if ($request -> password) {
+				$data [ 'password' ] = bcrypt ($data [ 'password' ]);
 			}
 
 			$user -> update ($data);
-			return back ()-> with ('success', '修改成功');
+			return back () -> with ('success', '修改成功');
 
 		}
 
-		/**
-		 * Remove the specified resource from storage.
-		 *
-		 * @param  \App\User $user
-		 *
-		 * @return \Illuminate\Http\Response
-		 */
-		public function destroy ( User $user, Request $request )
+
+		public function attention ( User $user )
 		{
-//			dd ($request -> all ());
-//			dd ($user);
-
+			//关注功能,原理就是使用中间表来建立user之间的关系,关注以后 就在中间表中写入
+			//对应的id
+			$user -> fans () -> toggle (auth () -> user ());
+			return back ();
 		}
+
 	}

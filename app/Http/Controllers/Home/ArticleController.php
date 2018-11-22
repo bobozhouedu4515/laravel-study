@@ -59,10 +59,16 @@ public function __construct ()
     }
 
 
-    public function show(Article $article)
+    public function show(User $user,Article $article)
     {
+//    	dd ($user->name );
 //	    dd ($article);
-	    return view ('home.article.show',compact ('article'));
+	   $user= $article->user;
+//	    dd ($dd);
+//	    $user=$article;
+//	    dd ($user);
+//	    dd ($article);
+	    return view ('home.article.show',compact ('article','user'));
     }
 
 

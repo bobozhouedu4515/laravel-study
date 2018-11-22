@@ -311,10 +311,14 @@
                                 <div class="col">
 
                                     <!-- Title -->
-                                    <a  href="{{route ('homearticle.create')}}"  class="card-header-title">
+                                    @auth()
+                                    <a  href="{{route ('homearticle.create')}}"  class="card-header-title ">
+
                                         文章发布
                                     </a>
-
+                                        @else
+                                       <p class="text-center fa fa-hand-o-right"> 亲:<a href="{{route ('login',['from'=>url ()->full()])}}">登录</a>后才能<strong class="">发表文章</strong>哦!</p>
+                                        @endauth
                                 </div>
 
                                 <div class="col-auto">

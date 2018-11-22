@@ -26,8 +26,9 @@
 		}
 
 
-		public function login ()
+		public function login (Request $request)
 		{
+//			dd ($request->form);
 			return view ('user.login');
 
 		}
@@ -38,14 +39,25 @@
 		//		dd(1);
 		//		dd($request->all ());
 		//		dd ($request->email);
-			$ifo = $request -> only ('email', 'password');
-		//		dd ($request->email);
-			//读取remember的值 如果点了 返回值true 否则假
-			$remember=$request->remember;
-			//attemp中传第二个参数
-			if (\Auth ::attempt ($ifo,$remember)) {
-				return redirect () -> route ('home') -> with ('success', '登录成功');
-			}
+
+//			dd ($request -> from );
+				$ifo = $request -> only ('email', 'password');
+				//		dd ($request->email);
+				//读取remember的值 如果点了 返回值true 否则假
+				$remember=$request->remember;
+				//attemp中传第二个参数
+
+				if (\Auth ::attempt ($ifo,$remember)) {
+					if($request->from){
+						return redirect ($request->from)  -> with ('success', '登录成功');
+					}else{
+						return redirect ()-> route('home') -> with ('success', '登录成功');
+					}
+
+				}
+
+//			dd ($path);
+
 
 			return redirect () -> route ('login') -> with ('danger', '用户名或者密码错误');
 		}
@@ -65,7 +77,7 @@
 		public function ligout ()
 		{
 			\Auth ::logout ();
-			return redirect () -> route ('login');
+			return redirect () -> route ('home');
 		}
 
 		public function passwordreset ()

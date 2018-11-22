@@ -11,6 +11,7 @@
 //会员路由
 Route::group (['prefix'=>'member','namespace'=>'Member', 'as'=>'member.'],function(){
 	Route ::resource ('user', 'UserController');
+	Route::get ('attention/{user}','UserController@attention')->name ('attention');
 });
 //工具类
 	Route::group (['prefix'=>'util','namespace'=>'Util','as'=>'util.'],function(){

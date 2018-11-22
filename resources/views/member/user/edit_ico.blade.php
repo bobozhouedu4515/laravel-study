@@ -6,7 +6,9 @@
             <div class="col-sm-9">
                 <div class="row justify-content-center  __web-inspector-hide-shortcut__">
 
-                    <input type="hidden" name="_token" value="meB8V3w51M6Fv2HJh2u70JUOzWk9CeaN2PFfdCeA">            <input type="hidden" name="_method" value="PUT">            <div class="card">
+                    <input type="hidden" name="_token" value="meB8V3w51M6Fv2HJh2u70JUOzWk9CeaN2PFfdCeA"> <input
+                            type="hidden" name="_method" value="PUT">
+                    <div class="card">
                         <div class="card-header">
                             <h4>头像设置</h4>
                         </div>
@@ -23,7 +25,7 @@
 
                     <form action="{{route ('member.user.update',$user)}}" method="post" class="col-sm-8" id="form-icon">
                         @csrf @method('PUT')
-                        <input type="hidden"  name="ico" value="{{$user->ico}}">
+                        <input type="hidden" name="ico" value="{{$user->ico}}">
                     </form>
                 </div>
             </div>
@@ -37,7 +39,8 @@
     {{--需要修改hdjs上传配置项：hdjs.blade.php--}}
     {{--还需要注意上传419状态码--}}
     <script>
-        require(['hdjs','bootstrap']);
+        require(['hdjs', 'bootstrap']);
+
         //上传图片
         function upImagePc() {
             require(['hdjs'], function (hdjs) {
@@ -56,6 +59,7 @@
                 }, options)
             });
         }
+
         //移除图片
         function removeImg(obj) {
             $(obj).prev('img').attr('src', '../dist/static/image/nopic.jpg');
