@@ -133,6 +133,8 @@ return [
     */
 
     'providers' => [
+
+            HieuLe\Active\ActiveServiceProvider::class,
             Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         /*
          * Laravel Framework Service Providers...
@@ -221,6 +223,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+	    // 当前文件选中的插件的别名
+        'Active' => HieuLe\Active\Facades\Active::class,
 
     ],
 

@@ -26,7 +26,7 @@
 		}
 
 
-		public function login (Request $request)
+		public function login ( Request $request )
 		{
 //			dd ($request->form);
 			return view ('user.login');
@@ -36,35 +36,34 @@
 		//接收登录的表单数据
 		public function loginform ( UserRequest $request )
 		{
-		//		dd(1);
-		//		dd($request->all ());
-		//		dd ($request->email);
+			//		dd(1);
+			//		dd($request->all ());
+			//		dd ($request->email);
 
 //			dd ($request -> from );
-				$ifo = $request -> only ('email', 'password');
-				//		dd ($request->email);
-				//读取remember的值 如果点了 返回值true 否则假
-				$remember=$request->remember;
-				//attemp中传第二个参数
+			$ifo = $request -> only ('email', 'password');
+			//		dd ($request->email);
+			//读取remember的值 如果点了 返回值true 否则假
+			$remember = $request -> remember;
+			//attemp中传第二个参数
 
-				if (\Auth ::attempt ($ifo,$remember)) {
-					if($request->from){
-						return redirect ($request->from)  -> with ('success', '登录成功');
-					}else{
-						return redirect ()-> route('home') -> with ('success', '登录成功');
-					}
-
+			if (\Auth ::attempt ($ifo, $remember)) {
+				if ($request -> from) {
+					return redirect ($request -> from) -> with ('success', '登录成功');
+				} else {
+					return redirect () -> route ('home') -> with ('success', '登录成功');
 				}
 
-//			dd ($path);
-
+			}
+			session () -> put ('user', $ifo[ 'email' ]);
+//			dd (session ('user'));s
 
 			return redirect () -> route ('login') -> with ('danger', '用户名或者密码错误');
 		}
 
 		public function store ( RegisterRequest $request )
 		{
-				//dd ($request->all ());
+			//dd ($request->all ());
 			$data = $request -> all ();
 			$data[ 'password' ] = bcrypt ($data[ 'password' ]);
 			//		dd ($data);
@@ -94,7 +93,7 @@
 			$email = $request -> email;
 			//email 第一个是 表中的字段  $email是表单提交的email,
 			//从表单中找出email匹配的数据,然后修改他的密保 保存
-			$user = User ::where('email', $email)->first();
+			$user = User ::where ('email', $email) -> first ();
 //			dd($user->toArray());
 			//如果找不加返回null
 //				        dd ($user->toArray());
@@ -110,6 +109,18 @@
 //		    $ user=User::firstOrNew(['email'=>$request->username]);
 //		    dd ($user);
 
+
+		}
+		public function remind ( User $user)
+		{
+			$remind='';
+			if (auth ()->user ()){
+				$remind=1;
+			}else{
+				$remind=0;
+			}
+
+			echo $remind;
 
 		}
 

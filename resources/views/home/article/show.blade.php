@@ -2,6 +2,7 @@
 @section('content')
     <div class="container" id="app">
         <div class="card-body">
+            {{--{{$article->id}}--}}
 
             <!-- Header -->
             <div class="mb-3">
@@ -12,7 +13,7 @@
                             <img src="{{$user->ico}}" alt="..." class="avatar-img rounded-circle">
                         </a>
                         <div>
-                            <a href="{{route ('member.attention',$user)}}" class="btn btn-danger btn-xs">
+                            <a href="{{route ('member.attention',$user)}}" onclick="remind(this)" class="btn btn-danger btn-xs" title="点击关注" >
                                 @if($user->fans->contains(auth ()->user ()))
                                     取消关注
                                 @else
@@ -196,82 +197,80 @@
                     </div>
                 </div> <!-- / .row -->
             </div>
-
-
-
             <!-- Divider -->
-
-
             <!-- Form -->
-            @auth()
-               <hr>
-            <div class="row align-items-start">
-                <div class="col-auto">
-
-                    <!-- Avatar -->
-                    <div class="avatar">
-
-                        <img src="{{auth ()->user ()->ico}}"
-                             alt="..." class="avatar-img rounded-circle">
-                            @else
-                            <img src="{{$user->ico}}"
-                            alt="..." class="avatar-img rounded-circle">
-                            @endauth
-                    </div>
-
-                </div>
+            <div class="container">
                 <div class="col ml--2">
-
                     <!-- Input -->
-
-                        @auth()
-                            <div id="editormd">
+                    @auth()
+                        <div id="editormd">
                             <textarea id="hdphp" style="height:300px;width:100%;"></textarea>
-                            </div>
-                        <button class="btn btn-primary">发表评论</button>
+                        </div>
+                        <button class="btn btn-primary" @click.prevent="send()">发表评论</button>
                         {{--<textarea class="form-control" placeholder="Leave a comment" rows="2"></textarea>--}}
-                        @else()
-
+                    @else()
                         <p class=""> 点击<a href="{{route ('login',['from'=>url ()->full()])}}">登录</a>后评论</p>
-
-                            @endauth
-
-
+                    @endauth
                 </div>
-            </div> <!-- / .row -->
-
-        </div>
+            </div>
+        </div> <!-- / .row -->
     </div>
 @endsection()
 @push('js')
     <script>
-        require(['hdjs','vue'],function(hdjs,Vue){
-            new Vue({
-                el:'#app',
-                data:{},
-                methods:{
+        require(['hdjs', 'vue','axios', 'MarkdownIt', 'marked', 'highlight'], function (hdjs, Vue,axios, MarkdownIt, marked) {
+         var vm=  new Vue({
+                el: '#app',
+                data: {
+                    comment:{content:''},
+                    comments:[]
+                },
+                methods: {
+                    send(){
+                        alert(2);
+                        axios.post('{{route ('homecomment.store')}}', {
+                           content:this.comment.content,
+                            article_id:'{{$article->id}}'
+                        })
+                            .then(function (response) {
+                                // console.log(response);
+                            })
+
+
+
+
+
+
+                    },
+
 
                 },
-                mounted(){
+                mounted() {
+                    alert(1);
                     hdjs.editormd("editormd", {
                         width: '100%',
                         height: 300,
-                        toolbarIcons : function() {
+                        toolbarIcons: function () {
                             return [
-                                "undo","redo","|",
-                                "bold", "del", "italic", "quote","|",
+                                "undo", "redo", "|",
+                                "bold", "del", "italic", "quote", "|",
                                 "list-ul", "list-ol", "hr", "|",
                                 "link", "hdimage", "code-block", "|",
                                 "watch", "preview", "fullscreen"
                             ]
                         },
                         //后台上传地址，默认为 hdjs配置项window.hdjs.uploader
-                        server:'',
+                        server: '',
                         //editor.md库位置
-                        path: "{{asset('org/hdjs')}}/package/editor.md/lib/"
+                        path: "{{asset('org/hdjs')}}/package/editor.md/lib/",
+                        onchange:function(){
+                            console.log(1)
+                            vm.$set(vm.comment,'content',this.getValue())
+                        }
                     });
                 }
             });
         })
     </script>
+
 @endpush

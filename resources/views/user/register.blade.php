@@ -81,7 +81,7 @@
                     </label>
 
                     <!-- Input -->
-                    <input type="email" class="form-control" name="email" value="13934873532@163.com" placeholder="name@address.com">
+                    <input type="email" class="form-control" name="email"  placeholder="请输入邮箱地址">
 
                 </div>
 
@@ -116,28 +116,12 @@
         </div>
     </div> <!-- / .row -->
 </div> <!-- / .container -->
-{{--<script>--}}
-    {{--window.hdjs={--}}
-        {{--//组件目录必须绝对路径--}}
-        {{--base:'{{asset ('org')}}/hdjs',--}}
-        {{--//上传文件后台地址--}}
-        {{--uploader : '/uploader.php?',--}}
-        {{--//获取文件列表的后台地址--}}
-        {{--filesLists : '/filesLists.php?',--}}
 
-        {{--//require.js配置项（可为空）--}}
-        {{--requireJs:{paths:{},shim:{}},--}}
-    {{--};--}}
-{{--</script>--}}
-
-{{--<script src="{{asset ('org')}}/hdjs/require.js"></script>--}}
-{{--<script src="{{asset ('org')}}/hdjs/config.js"></script>--}}
 @include('layouts.hdjs')
 @include('layouts.message')
 <script>
     require(['hdjs','bootstrap'], function (hdjs) {
         let option = {
-
             //按钮
             el: '#bt',
             //后台链接
@@ -151,41 +135,6 @@
     })
 </script>
 
-{{--<script>--}}
-    {{--@if (session()->has('danger'))--}}
-    {{--require(['hdjs'], function (hdjs) {--}}
-        {{--hdjs.swal({--}}
-            {{--text: "{{session()->get('danger')}}",--}}
-            {{--button:false,--}}
-            {{--icon:'warning'--}}
-        {{--});--}}
-    {{--})--}}
-    {{--@endif--}}
-{{--</script>--}}
-
-{{--<script>--}}
-    {{--@if (session()->has('success'))--}}
-    {{--require(['hdjs'], function (hdjs) {--}}
-        {{--hdjs.swal({--}}
-            {{--text: "{{session()->get('success')}}",--}}
-            {{--button:false,--}}
-            {{--icon:'success'--}}
-        {{--});--}}
-    {{--})--}}
-    {{--@endif--}}
-{{--</script>--}}
-
-{{--<script>--}}
-    {{--@if ($errors->any())--}}
-    {{--require(['hdjs'], function (hdjs) {--}}
-        {{--hdjs.swal({--}}
-            {{--text: "@foreach ($errors->all() as $error) {{ $error }}\r\n @endforeach",--}}
-            {{--button:false,--}}
-            {{--icon:'warning'--}}
-        {{--});--}}
-    {{--})--}}
-    {{--@endif--}}
-{{--</script>--}}
 
 
 

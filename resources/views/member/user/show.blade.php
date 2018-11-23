@@ -48,7 +48,9 @@
                                 <div class="card-body">
 
                                     <!-- List -->
+
                                     <ul class="list-group list-group-lg list-group-flush list my--4">
+                                        {{$articles}}
                                         @foreach($articles as $article)
                                             <li class="list-group-item px-0">
 

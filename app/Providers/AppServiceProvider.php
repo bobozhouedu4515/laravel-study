@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Observers\CategoryObserver;
 use App\Observers\UserObserver;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
@@ -24,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
 	    //注册观察者 手册 orm模型 中的observe
 	    User::observe(UserObserver::class);
 	    Category ::observe (CategoryObserver::class);
+	    //设置时间的库 设置当前时间是中文显示!
+	    Carbon ::setLocale ('zh');
     }
 
     /**

@@ -16,7 +16,7 @@
 		 */
 		public function index ()
 		{
-			//
+
 		}
 
 		/**
@@ -51,7 +51,7 @@
 		public function show ( User $user )
 		{
 //	    dd ($user);
-			$articles = Article ::latest () -> where ('user_id', $user -> id) -> paginate (5);
+			$articles = Article ::latest () -> where ('user_id', $user -> id) -> paginate (3);
 
 			return view ('member.user.show', compact ('user', 'articles'));
 		}
@@ -62,8 +62,8 @@
 //			dd ($user);
 			$this->authorize ('isMine',$user);
 			$type = $request -> query ('type');
-			$fans = $user -> fans () -> paginate (5);
-			$followings = $user -> followings () -> paginate (5);
+//			$fans = $user -> fans () -> paginate (5);
+//			$followings = $user -> followings () -> paginate (5);
 
 
 
@@ -107,5 +107,20 @@
 			$user -> fans () -> toggle (auth () -> user ());
 			return back ();
 		}
+
+		public function fans (User $user)
+		{
+			$fans = $user -> fans () -> paginate (3);
+
+			return view ('member.user.edit_fans', compact ('fans','user'));
+		}
+
+		public function followings (User $user)
+		{
+			$followings = $user -> followings () -> paginate (3);
+			return view ('member.user.edit_followings', compact ('followings','user'));
+
+		}
+
 
 	}

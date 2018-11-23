@@ -14,8 +14,11 @@
     <link rel="stylesheet" href="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/flatpickr/dist/flatpickr.min.css">
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/css/theme.min.css">
+    {{--icon小图标的在线文件--}}
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <title>红袖添香主页</title>
+    {{--设置active字体颜色的css--}}
+    @stack('css')
 </head>
 <body>
 {{--Top!--}}

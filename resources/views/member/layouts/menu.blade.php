@@ -1,7 +1,5 @@
 
-<head>
-    <link rel="stylesheet" href="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/fonts/feather/feather.min.css">
-</head>
+
 
 <div class="col-sm-3">
 
@@ -32,30 +30,30 @@
             </div>
                 @can('isMine',$user)
                 <div class="nav flex-column nav-pills pb--3 ">
-                    <a href="{{route ('member.user.edit',[$user,'type'=>'ico'])}}" class="nav-link text-muted fa fa-user">
+                    <a href="{{route ('member.user.edit',[$user,'type'=>'ico'])}}" class="nav-link text-muted fa fa-user {{ active_class(if_route(['member.user.edit']) && if_query('type', 'ico'),'active','') }}">
                         修改头像
                     </a>
                 </div>
 
                 <div class="nav flex-column nav-pills ">
-                    <a href="{{route ('member.user.edit',[$user,'type'=>'password'])}}" class="nav-link text-muted fa fa-key">
+                    <a href="{{route ('member.user.edit',[$user,'type'=>'password'])}}" class="nav-link text-muted fa fa-key {{ active_class(if_route(['member.user.edit']) && if_query('type', 'password'),'active','') }}">
                         修改密码
                     </a>
                 </div>
                 <div class="nav flex-column nav-pills ">
-                    <a href="{{route ('member.user.edit',[$user,'type'=>'name'])}}" class="nav-link text-muted fa fa-pencil-square-o">
+                    <a href="{{route ('member.user.edit',[$user,'type'=>'name'])}}" class="nav-link text-muted fa fa-pencil-square-o {{ active_class(if_route(['member.user.edit']) && if_query('type', 'name'),'active','') }}">
                         修改昵称
                     </a>
                 </div>
                 @endcan
             <div class="nav flex-column nav-pills ">
-                <a href="{{route ('member.user.edit',[$user,'type'=>'fans'])}}" class="nav-link text-muted fa fa-users">
+                <a href="{{route ('member.fans',$user)}}" class="nav-link text-muted fa fa-users {{ active_class(if_route(['member.fans',$user])) }}">
                     粉丝列表
                 </a>
-                <a href="{{route ('member.user.edit',[$user,'type'=>'followings'])}}" class="nav-link text-muted fa fa-users">
+                <a href="{{route ('member.followings',$user)}}" class="nav-link text-muted fa fa-users {{ active_class(if_route(['member.followings',$user])) }}">
                     关注列表
                 </a>
-                <a href="{{route ('member.user.show',$user)}}" class="nav-link text-muted fa fa-male">
+                <a href="{{route ('member.user.show',$user)}}"  class="nav-link text-muted fa fa-male  {{active_class(if_route(['member.user.show',$user]))}} ">
                     个人中心
                 </a>
             </div>
@@ -63,3 +61,10 @@
     </div>
 
 </div>
+@push('css')
+    <style>
+        .active{
+            color:white!important;
+        }
+    </style>
+@endpush
