@@ -2,9 +2,9 @@
 @section('content')
     <div class="container" id="app">
         <div class="card-body">
-            {{--{{$article->id}}--}}
+        {{--{{$article->id}}--}}
 
-            <!-- Header -->
+        <!-- Header -->
             <div class="mb-3">
                 <div class="row align-items-center">
                     <div class="col-auto">
@@ -13,13 +13,18 @@
                             <img src="{{$user->ico}}" alt="..." class="avatar-img rounded-circle">
                         </a>
                         <div>
-                            <a href="{{route ('member.attention',$user)}}" onclick="remind(this)" class="btn btn-danger btn-xs" title="点击关注" >
+                            @auth()
+                            <a href="{{route ('member.attention',$user)}}"
+                               class="btn btn-danger btn-xs" title="点击关注">
                                 @if($user->fans->contains(auth ()->user ()))
                                     取消关注
                                 @else
                                     点击关注
                                 @endif
                             </a>
+                                @else
+                                <a href="#!"  onclick="remind(this)" class="btn btn-xs btn-danger">点击关注</a>
+                                @endauth
                         </div>
 
                     </div>
@@ -144,13 +149,13 @@
 
             <!-- Comments -->
 
-            <div class="comment mb-3">
+            <div class="comment mb-3" v-for="v in comments">
                 <div class="row">
                     <div class="col-auto">
 
                         <!-- Avatar -->
                         <a class="avatar" href="profile-posts.html">
-                            <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-2.jpg"
+                            <img :src="v.user.ico"
                                  alt="..." class="avatar-img rounded-circle">
                         </a>
 
@@ -166,7 +171,7 @@
                                     <!-- Title -->
                                     <h5 class="comment-title"><font style="vertical-align: inherit;"><font
                                                     style="vertical-align: inherit;">
-                                                艾哈德利
+                                                @{{ v.user.name }}
                                             </font></font></h5>
 
                                 </div>
@@ -175,22 +180,16 @@
                                     <!-- Time -->
                                     <time class="comment-time"><font style="vertical-align: inherit;"><font
                                                     style="vertical-align: inherit;">
-                                                11:12
+                                                @{{v.created_at}}
                                             </font></font></time>
 
                                 </div>
                             </div> <!-- / .row -->
 
                             <!-- Text -->
-                            <p class="comment-text"><font style="vertical-align: inherit;"><font
-                                            style="vertical-align: inherit;">
-                                        看起来很好的Dianna！</font><font style="vertical-align: inherit;">我喜欢左边的图像网格，但是处理起来感觉很多，并没有真正</font></font><em><font
-                                            style="vertical-align: inherit;"><font
-                                                style="vertical-align: inherit;">告诉</font></font></em><font
-                                        style="vertical-align: inherit;"><font
-                                            style="vertical-align: inherit;">我产品的作用？</font><font
-                                            style="vertical-align: inherit;">我认为使用短循环视频或类似的演示产品可能会更好？
-                                    </font></font></p>
+                            <p class="comment-text " v-html="v.content">
+                                {{--@{{ v.content }}--}}
+                            </p>
 
                         </div>
 
@@ -202,10 +201,11 @@
             <div class="container">
                 <div class="col ml--2">
                     <!-- Input -->
+
+                    <div id="editormd">
+                        <textarea id="hdphp" style="height:300px;width:100%;"></textarea>
+                    </div>
                     @auth()
-                        <div id="editormd">
-                            <textarea id="hdphp" style="height:300px;width:100%;"></textarea>
-                        </div>
                         <button class="btn btn-primary" @click.prevent="send()">发表评论</button>
                         {{--<textarea class="form-control" placeholder="Leave a comment" rows="2"></textarea>--}}
                     @else()
@@ -218,35 +218,38 @@
 @endsection()
 @push('js')
     <script>
-        require(['hdjs', 'vue','axios', 'MarkdownIt', 'marked', 'highlight'], function (hdjs, Vue,axios, MarkdownIt, marked) {
-         var vm=  new Vue({
+        require(['hdjs', 'vue', 'axios', 'MarkdownIt', 'marked', 'highlight'], function (hdjs, Vue, axios, MarkdownIt, marked) {
+            var vm = new Vue({
                 el: '#app',
                 data: {
-                    comment:{content:''},
-                    comments:[]
+                    comment: {content: ''},
+                    comments: []
                 },
                 methods: {
-                    send(){
-                        alert(2);
+                    @auth()
+                    send() {
+                        // alert(2);
                         axios.post('{{route ('homecomment.store')}}', {
-                           content:this.comment.content,
-                            article_id:'{{$article->id}}'
-                        })
-                            .then(function (response) {
-                                // console.log(response);
-                            })
-
-
-
-
-
-
+                            content: this.comment.content,
+                            article_id: '{{$article['id']}}'
+                        }).then((response) => {
+                            // console.log(response.data.comment);
+                            //接收php处理以后的数据,是一个json格式的数据.其中的data中的comment中包含了我们本条评论的所有信息!
+                            // console.log(response);
+                            //把每次发表的文章都追加到comments中!
+                            this.comments.push(response.data.comment);
+                            let md = new MarkdownIt();
+                            response.data.comment.content = md.render(response.data.comment.content)
+                        });
+                        editormd.setSelection({line: 0, ch: 0}, {line: 9999999, ch: 9999999});
+                        //将选中文本替换成空字符串
+                        editormd.replaceSelection("");
                     },
-
-
+                    @endauth
                 },
                 mounted() {
-                    alert(1);
+                    // alert(1);
+
                     hdjs.editormd("editormd", {
                         width: '100%',
                         height: 300,
@@ -263,14 +266,37 @@
                         server: '',
                         //editor.md库位置
                         path: "{{asset('org/hdjs')}}/package/editor.md/lib/",
-                        onchange:function(){
-                            console.log(1)
-                            vm.$set(vm.comment,'content',this.getValue())
+                        onchange: function () {
+                            // console.log(1)
+                            //当检测到页面变化的时候,
+                            vm.$set(vm.comment, 'content', this.getValue())
+                            // vm.$set()
                         }
                     });
+
+                    //因为index页面是get请求 所以需要把数据放到地址的参数中
+                    axios.get('{{route("homecomment.index",['article_id'=>$article['id']])}}')
+                        .then((response) => {
+                            // console.log(response);
+                            this.comments = response.data.comments;
+                            let md = new MarkdownIt();
+                            this.comments.forEach((v, k) => {
+                                v.content = md.render(v.content)
+                            })
+                        })
                 }
             });
         })
     </script>
+    <script>
+        function remind() {
+            require(['hdjs'], function (hdjs) {
 
+                hdjs.swal ( "亲啊" ,  "你还没有登录呀!" ,  "error" );
+
+
+            })
+        }
+
+    </script>
 @endpush

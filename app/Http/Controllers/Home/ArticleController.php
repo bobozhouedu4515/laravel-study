@@ -21,11 +21,19 @@ public function __construct ()
 	);
 }
 
-	public function index()
+	public function index( Request $request,Article $article)
     {
+//    	dd ($request->query ('num'));
+	    $num = $request -> query ('num');
 //    	dd (Article::all ()->toArray ());
-	    $articles = Article ::latest()->paginate(10);
-	    return view ('home.article.index',compact ('articles'));
+//	    $articles = Article ::latest()->paginate(10);
+		// {{$articles->appends(['category' => Request::query('category')])->links()}}
+		if ($num) {
+			$articles = $article-> where ('category_id', $num) -> paginate (5);
+		}else{
+			$articles=Article ::latest()->paginate(10);
+		}
+	    return view ('home.article.index',compact ('articles','num'));
     }
 
 
@@ -105,5 +113,6 @@ public function __construct ()
 	    return  back()-> with ('danger', '删除成功');
 
     }
+
 
 }

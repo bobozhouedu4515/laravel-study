@@ -303,51 +303,31 @@
             <div class="row">
 
                 <div class="col-12">
-                {{$articles}}
-                    <!-- Files -->
+                    {{-- {{$articles->appends(['category' => Request::query('category')])->links()}}--}}
+                {{$articles->appends(['num' =>$num])->links()}}
+                <!-- Files -->
                     <div class="card" data-toggle="lists" data-lists-values='["name"]'>
                         <div class="card-header">
                             <div class="row align-items-center">
                                 <div class="col">
-
                                     <!-- Title -->
                                     @auth()
-                                    <a  href="{{route ('homearticle.create')}}"  class="card-header-title ">
-
-                                        文章发布
-                                    </a>
-                                        @else
-                                       <p class="text-center fa fa-hand-o-right"> 亲:<a href="{{route ('login',['from'=>url ()->full()])}}">登录</a>后才能<strong class="">发表文章</strong>哦!</p>
-                                        @endauth
-                                </div>
-
-                                <div class="col-auto">
-
-                                    <!-- Dropdown -->
-                                    <div class="dropdown">
-
-                                        <!-- Toggle -->
-                                        <a href="#!" class="small text-muted dropdown-toggle" data-toggle="dropdown">
-                                            按时间排序
+                                        <a href="{{route ('homearticle.create')}}" class="btn btn-primary">
+                                            文章发布
                                         </a>
+                                    @else
+                                        <p class="text-center fa fa-hand-o-right"> 亲:<a
+                                                    href="{{route ('login',['from'=>url ()->full()])}}">登录</a>后才能<strong
+                                                    class="">发表文章</strong>哦!</p>
 
-                                        <!-- Menu -->
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item sort" data-sort="name" href="#!">
-                                                最新的文章
-                                            </a>
-                                            <a class="dropdown-item sort" data-sort="name" href="#!">
-                                                最久的文章
-                                            </a>
-                                        </div>
+                                    @endauth
 
-                                    </div>
-
-                                </div>
-                                <div class="col-auto">
-
-                                    <!-- Button -->
-
+                                    <a href="{{route ('home.article.index',['num'=>3])}}" class="btn btn-success">技术分享</a>
+                                    <a href="{{route ('home.article.index',['num'=>5])}}" class="btn btn-danger">码农生活</a>
+                                    <a href="{{route ('home.article.index',['num'=>2])}}" class="btn btn-primary">桌面文化</a>
+                                    <a href="{{route ('home.article.index',['num'=>1])}}" class="btn btn-info">程序人生</a>
+                                    <a href="{{route ('home.article.index',['num'=>4])}}" class="btn btn-danger">问答求助</a>
+                                    <a href="{{route ('home.article.index',['num'=>0])}}" class="btn btn-dark">所有文章</a>
 
                                 </div>
                             </div> <!-- / .row -->
@@ -377,113 +357,100 @@
                             <!-- List -->
                             <ul class="list-group list-group-lg list-group-flush list my--4">
                                 @foreach($articles as $article)
-                                <li class="list-group-item px-0">
+                                    <li class="list-group-item px-0">
 
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
 
-                                            <!-- Avatar -->
-                                            <a href="{{route ('member.user.show',$article->user)}}" class="avatar avatar-lg">
-                                                <img src="{{$article->user->ico}}"
-                                                     alt="..." class="avatar-img rounded">
-                                            </a>
-
-                                        </div>
-                                        <div class="col ml--2">
-
-                                            <!-- Title -->
-
-                                            <h4 class="card-title mb-1 name">
-                                                <a href="{{route ('homearticle.show',$article)}}">{{$article->title}}</a>
-                                            </h4>
-
-                                            <!-- Text -->
-                                            <p class="card-text small text-muted" style="color: blue">
-                                                栏目:{{$article->category->title}}
-                                            </p>
-                                            <!-- Time -->
-                                            <p class="card-text small text-muted">
-                                              {{$article->user->name}} 发布于:
-                                                <time datetime="2018-01-03">{{$article->created_at->diffForHumans()}}</time>
-                                            </p>
-
-                                        </div>
-                                        <div class="col-auto">
-
-                                            <!-- Button -->
-
-
-                                        </div>
-                                        <div class="col-auto">
-
-                                            <!-- Dropdown -->
-                                            <div class="dropdown">
-                                                <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button"
-                                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="fe fe-more-vertical"></i>
+                                                <!-- Avatar -->
+                                                <a href="{{route ('member.user.show',$article->user)}}"
+                                                   class="avatar avatar-lg">
+                                                    <img src="{{$article->user->ico}}"
+                                                         alt="..." class="avatar-img rounded">
                                                 </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a href="{{route ('homearticle.show',$article)}}" class="dropdown-item">
-                                                        查看文章
-                                                    </a>
+
+                                            </div>
+                                            <div class="col ml--2">
+
+                                                <!-- Title -->
+
+                                                <h4 class="card-title mb-1 name">
+                                                    <a href="{{route ('homearticle.show',$article)}}">{{$article->title}}</a>
+                                                </h4>
+
+                                                <!-- Text -->
+                                                <p class="card-text small text-muted" style="color: blue">
+                                                    栏目:{{$article->category->title}}
+                                                </p>
+                                                <!-- Time -->
+                                                <p class="card-text small text-muted">
+                                                    {{$article->user->name}} 发布于:
+                                                    <time datetime="2018-01-03">{{$article->created_at->diffForHumans()}}</time>
+                                                </p>
+
+                                            </div>
+                                            <div class="col-auto">
+
+                                                <!-- Button -->
 
 
-                                                    @can('update',$article)
-                                                    <a href="{{route ('homearticle.edit',$article)}}" class="dropdown-item">
-                                                       修改文章
-                                                    </a>
-                                                    @endcan
-                                                    @can('delete',$article)
-                                                    <a href="#!" onclick="del(this)" class="dropdown-item">
-                                                        删除文章
-                                                    </a>
-                                                    @endcan
+                                            </div>
+                                            <div class="col-auto">
 
-                                                        <form action="{{route ('homearticle.destroy',$article)}}" method="post">
+                                                <!-- Dropdown -->
+                                                <div class="dropdown">
+                                                    <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button"
+                                                       data-toggle="dropdown" aria-haspopup="true"
+                                                       aria-expanded="false">
+                                                        <i class="fe fe-more-vertical"></i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a href="{{route ('homearticle.show',$article)}}"
+                                                           class="dropdown-item">
+                                                            查看文章
+                                                        </a>
+
+
+                                                        @can('update',$article)
+                                                            <a href="{{route ('homearticle.edit',$article)}}"
+                                                               class="dropdown-item">
+                                                                修改文章
+                                                            </a>
+                                                        @endcan
+                                                        @can('delete',$article)
+                                                            <a href="Javascript:;" onclick="del(this)"
+                                                               class="dropdown-item">
+                                                                删除文章
+                                                            </a>
+                                                        @endcan
+
+                                                        <form action="{{route ('homearticle.destroy',$article)}}"
+                                                              method="post">
                                                             @csrf @method('delete')
                                                         </form>
 
+                                                    </div>
                                                 </div>
+
                                             </div>
+                                        </div> <!-- / .row -->
 
-                                        </div>
-                                    </div> <!-- / .row -->
-
-                                </li>
-                            @endforeach
+                                    </li>
+                                @endforeach
                             </ul>
-
-
                         </div>
-
                     </div>
-
                 </div>
             </div> <!-- / .row -->
         </div>
     </div>
+@endsection
+@push('js')
     <script>
         function del(obj) {
-            if (confirm('确认删除吗?')){
+            if (confirm('确认删除吗?')) {
                 $(obj).next('form').submit();
             }
         }
-
     </script>
-    <script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/jquery/dist/jquery.min.js"></script>
-    <script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/chart.js/dist/Chart.min.js"></script>
-    <script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/chart.js/Chart.extension.min.js"></script>
-    <script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/highlight/highlight.pack.min.js"></script>
-    <script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/flatpickr/dist/flatpickr.min.js"></script>
-    <script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
-    <script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/list.js/dist/list.min.js"></script>
-    <script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/quill/dist/quill.min.js"></script>
-    <script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/dropzone/dist/min/dropzone.min.js"></script>
-    <script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/libs/select2/dist/js/select2.min.js"></script>
-
-    <!-- Theme JS -->
-    <script src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/js/theme.min.js"></script>
-
-
-
-@endsection
+@endpush

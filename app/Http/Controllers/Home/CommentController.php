@@ -13,8 +13,15 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request,Comment $comment)
     {
+//	    dd ($request ->article_id);
+//	    报错serve _error
+//	    dd (Comment::all ());
+//	    dd ($comment->get());
+	    $comments=$comment->with('user')->where('article_id',$request->article_id)->get();
+//	    dd ($comments);
+	    return ['code'=>1,'message'=>'','comments'=>$comments];
 
     }
 
@@ -41,10 +48,18 @@ class CommentController extends Controller
 	    $comment->article_id=$request->article_id;
 	    $comment->content=$request['content'];
 	    $comment->save ();
+//	    表单提交过来的数据保存到数据库中的一条数据!
 //	    dd ($comment);
-	   $comment= $comment->with('user')->get ();
+//	   $comments= $comment->with('user')->get ();
+	    $comment = $comment -> with ('user') -> find ($comment ->id);
+//	    获取当前评论的所有信息并包含了用户的所有信息!
 //	   $arr=$comment->with('article')->get();
-	    dd ($comment->toArray ());
+
+//	    with关联以后 可以得到所有评论,并且每条评论中会包含发表评论的用户的所有信息
+//	    dd ($comment->toArray ());
+	    //返回一个code 和提示信息, 并把评论的信息包含在comment中,并且返回一个json数据格式
+	    return ['code'=>1,'message'=>'发表成功','comment'=>$comment];
+
 
     }
 

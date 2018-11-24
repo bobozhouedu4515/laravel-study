@@ -8,6 +8,14 @@ use App\Http\Controllers\Controller;
 
 class UploadController extends Controller
 {
+
+	public function __construct ()
+	{
+		$this->middleware('auth',[
+		'only'=>['uploader','filesLists' ,'checkSize','checkType']
+		]);
+	}
+
 	public function uploader (Request $request)
 	{
 //		dd ($_FILES);
