@@ -18,7 +18,7 @@ Route::group (['prefix'=>'member','namespace'=>'Member', 'as'=>'member.'],functi
 	Route::get ('attention/{user}','UserController@attention')->name ('attention');
 });
 //工具类
-	Route::group (['prefix'=>'util','namespace'=>'Util','as'=>'util.'],function(){
+	Route::group (['middleware'=>['uploadcheck'],'prefix'=>'util','namespace'=>'Util','as'=>'util.'],function(){
 		Route::any ('uploader','UploadController@uploader')->name ('uploader');
 		Route ::any ('fileslists', 'UploadController@filesLists') -> name ('fileslists');
 	});

@@ -309,7 +309,7 @@
                     <div class="card" data-toggle="lists" data-lists-values='["name"]'>
                         <div class="card-header">
                             <div class="row align-items-center">
-                                <div class="col">
+                                <div class="col text-center">
                                     <!-- Title -->
                                     @auth()
                                         <a href="{{route ('homearticle.create')}}" class="btn btn-primary">
@@ -448,9 +448,11 @@
 @push('js')
     <script>
         function del(obj) {
-            if (confirm('确认删除吗?')) {
-                $(obj).next('form').submit();
-            }
+            require(['hdjs','bootstrap'], function (hdjs) {
+                hdjs.confirm('确定删除吗?', function () {
+                    alert('点击确定后执行的回调函数');
+                })
+            })
         }
     </script>
 @endpush

@@ -16,6 +16,8 @@ class CommentController extends Controller
     public function index(Request $request,Comment $comment)
     {
 //	    dd ($request ->article_id);
+//	    dd ($comment->get());
+//	    dd ($comment->get());
 //	    报错serve _error
 //	    dd (Comment::all ());
 //	    dd ($comment->get());

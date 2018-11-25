@@ -14,17 +14,17 @@
                         </a>
                         <div>
                             @auth()
-                            <a href="{{route ('member.attention',$user)}}"
-                               class="btn btn-danger btn-xs" title="点击关注">
-                                @if($user->fans->contains(auth ()->user ()))
-                                    取消关注
-                                @else
-                                    点击关注
-                                @endif
-                            </a>
-                                @else
-                                <a href="#!"  onclick="remind(this)" class="btn btn-xs btn-danger">点击关注</a>
-                                @endauth
+                                <a href="{{route ('member.attention',$user)}}"
+                                   class="btn btn-danger btn-xs" title="点击关注">
+                                    @if($user->fans->contains(auth ()->user ()))
+                                        取消关注
+                                    @else
+                                        点击关注
+                                    @endif
+                                </a>
+                            @else
+                                <a href="#!" onclick="remind(this)" class="btn btn-xs btn-danger">点击关注</a>
+                            @endauth
                         </div>
 
                     </div>
@@ -215,20 +215,30 @@
             </div>
         </div> <!-- / .row -->
     </div>
+
 @endsection()
 @push('js')
     <script>
-        require(['hdjs', 'vue', 'axios', 'MarkdownIt', 'marked', 'highlight'], function (hdjs, Vue, axios, MarkdownIt, marked) {
+        require(['hdjs', 'vue', 'axios', 'MarkdownIt', 'marked', 'highlight'], function (hdjs, Vue, axios, MarkdownIt) {
             var vm = new Vue({
                 el: '#app',
                 data: {
+                    //为了和返回的数据保持一致 所有创建了一层content
                     comment: {content: ''},
                     comments: []
                 },
                 methods: {
-                    @auth()
+                    {{--@auth()--}}
                     send() {
                         // alert(2);
+                        if (this.comment.content.trim() == '') {
+                            hdjs.swal({
+                                text: "请输入评论内容",
+                                button: false,
+                                icon: 'warning'
+                            });
+                            return false;
+                        }
                         axios.post('{{route ('homecomment.store')}}', {
                             content: this.comment.content,
                             article_id: '{{$article['id']}}'
@@ -239,13 +249,19 @@
                             //把每次发表的文章都追加到comments中!
                             this.comments.push(response.data.comment);
                             let md = new MarkdownIt();
-                            response.data.comment.content = md.render(response.data.comment.content)
+                            response.data.comment.content = md.render(response.data.comment.content);
+                            $(document).ready(function () {
+                                $('pre code').each(function (i, block) {
+                                    hljs.highlightBlock(block);
+                                });
+                            });
                         });
+
                         editormd.setSelection({line: 0, ch: 0}, {line: 9999999, ch: 9999999});
                         //将选中文本替换成空字符串
                         editormd.replaceSelection("");
                     },
-                    @endauth
+                    {{--@endauth--}}
                 },
                 mounted() {
                     // alert(1);
@@ -266,11 +282,14 @@
                         server: '',
                         //editor.md库位置
                         path: "{{asset('org/hdjs')}}/package/editor.md/lib/",
+
                         onchange: function () {
                             // console.log(1)
-                            //当检测到页面变化的时候,
-                            vm.$set(vm.comment, 'content', this.getValue())
-                            // vm.$set()
+                            //当检测到页面变化的时候,this代表编辑器?
+
+                                vm.$set(vm.comment, 'content', this.getValue())
+                                // vm.$set()
+
                         }
                     });
 
@@ -278,12 +297,21 @@
                     axios.get('{{route("homecomment.index",['article_id'=>$article['id']])}}')
                         .then((response) => {
                             // console.log(response);
+
                             this.comments = response.data.comments;
                             let md = new MarkdownIt();
-                            this.comments.forEach((v, k) => {
-                                v.content = md.render(v.content)
-                            })
+                            if (this.comments) {
+                                this.comments.forEach((v, k) => {
+                                    v.content = md.render(v.content)
+                                })
+                            }
+                            $(document).ready(function () {
+                                $('pre code').each(function (i, block) {
+                                    hljs.highlightBlock(block);
+                                });
+                            });
                         })
+
                 }
             });
         })
@@ -291,12 +319,8 @@
     <script>
         function remind() {
             require(['hdjs'], function (hdjs) {
-
-                hdjs.swal ( "亲啊" ,  "你还没有登录呀!" ,  "error" );
-
-
+                hdjs.swal("亲啊", "你还没有登录呀!", "error");
             })
         }
-
     </script>
 @endpush

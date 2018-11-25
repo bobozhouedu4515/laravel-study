@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class AdminAuthMiddleware
+class UploadMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,11 +15,9 @@ class AdminAuthMiddleware
      */
     public function handle($request, Closure $next)
     {
-//	    dd (auth ()->check ());
-	    if(!auth()->check() || auth()->user()->superadmin != 1){
-		    return redirect()->route('home')->with ('danger','页面不存在');
+    	if (!auth ()->check ()){
+		    return redirect () -> route ('login') -> with ('danger', '你还没有登录');
 	    }
-//	    dd ($next($request));
-	    return $next($request);
+        return $next($request);
     }
 }
