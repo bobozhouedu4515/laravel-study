@@ -19,19 +19,21 @@
                                 <div class="col-auto">
 
                                     <!-- Link -->
-                                    <a href="#!" class="small">View all</a>
+                                    <a href="#!" class="small">动态</a>
 
                                 </div>
                             </div> <!-- / .row -->
                         </div>
                         <div class="card-body">
 
+                            @foreach($activities as $activity)
+                                @if($activity->log_name=='comment')
                             <div class="row align-items-center">
                                 <div class="col-auto">
 
                                     <!-- Avatar -->
-                                    <a href="project-overview.html" class="avatar avatar-4by3">
-                                        <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/projects/project-1.jpg"
+                                    <a href="{{route ('member.user.show',$activity->causer->id)}}" class="avatar avatar-4by3">
+                                        <img src="{{$activity->causer->ico}}"
                                              alt="..." class="avatar-img rounded">
                                     </a>
 
@@ -40,12 +42,13 @@
 
                                     <!-- Title -->
                                     <h4 class="card-title mb-1">
-                                        <a href="project-overview.html">Homepage Redesign</a>
+                                        <a href="">{{$activity->causer->name}}</a><span>评论了</span>
+                                        <strong>{{$activity->subject->article->title}}</strong>
                                     </h4>
 
                                     <!-- Time -->
                                     <p class="card-text small text-muted">
-                                        <time datetime="2018-05-24">Updated 5hr ago</time>
+                                        <time datetime="2018-05-24">{{$activity->created_at->diffForHumans()}}</time>
                                     </p>
 
                                 </div>
@@ -71,158 +74,67 @@
                                     </div>
 
                                 </div>
-                            </div> <!-- / .row -->
-
-                            <!-- Divider -->
+                            </div>
                             <hr>
+                            @elseif($activity->log_name=='article')
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
 
-                            <div class="row align-items-center">
-                                <div class="col-auto">
-
-                                    <!-- Avatar -->
-                                    <a href="project-overview.html" class="avatar avatar-4by3">
-                                        <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/projects/project-2.jpg"
-                                             alt="..." class="avatar-img rounded">
-                                    </a>
-
-                                </div>
-                                <div class="col ml--2">
-
-                                    <!-- Title -->
-                                    <h4 class="card-title mb-1">
-                                        <a href="project-overview.html">Travels & Time</a>
-                                    </h4>
-
-                                    <!-- Time -->
-                                    <p class="card-text small text-muted">
-                                        <time datetime="2018-05-24">Updated 3hr ago</time>
-                                    </p>
-
-                                </div>
-                                <div class="col-auto">
-
-                                    <!-- Dropdown -->
-                                    <div class="dropdown">
-                                        <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fe fe-more-vertical"></i>
+                                        <!-- Avatar -->
+                                        <a href="{{route ('member.user.show',$activity->causer->id)}}" class="avatar avatar-4by3">
+                                            <img src="{{$activity->causer->ico}}"
+                                                 alt="..." class="avatar-img rounded">
                                         </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a href="#!" class="dropdown-item">
-                                                Action
-                                            </a>
-                                            <a href="#!" class="dropdown-item">
-                                                Another action
-                                            </a>
-                                            <a href="#!" class="dropdown-item">
-                                                Something else here
-                                            </a>
-                                        </div>
+
                                     </div>
+                                    <div class="col ml--2">
 
-                                </div>
-                            </div> <!-- / .row -->
+                                        <!-- Title -->
+                                        <h4 class="card-title mb-1">
+                                            <a href="">{{$activity->causer->name}}</a><span>
+                                                @if($activity->description=='created')发表了
+                                                @elseif($activity->description=='updated')更新了
+                                                @elseif($activity->description=='deleted') 删除了
+                                                @endif
+                                            </span>
+                                            <strong>{{$activity->subject->title}}</strong>
+                                        </h4>
 
-                            <!-- Divider -->
-                            <hr>
+                                        <!-- Time -->
+                                        <p class="card-text small text-muted">
+                                            <time datetime="2018-05-24">{{$activity->created_at->diffForHumans()}}</time>
+                                        </p>
 
-                            <div class="row align-items-center">
-                                <div class="col-auto">
-
-                                    <!-- Avatar -->
-                                    <a href="project-overview.html" class="avatar avatar-4by3">
-                                        <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/projects/project-3.jpg"
-                                             alt="..." class="avatar-img rounded">
-                                    </a>
-
-                                </div>
-                                <div class="col ml--2">
-
-                                    <!-- Title -->
-                                    <h4 class="card-title mb-1">
-                                        <a href="project-overview.html">Safari Exploration</a>
-                                    </h4>
-
-                                    <!-- Time -->
-                                    <p class="card-text small text-muted">
-                                        <time datetime="2018-05-24">Updated 10hr ago</time>
-                                    </p>
-
-                                </div>
-                                <div class="col-auto">
-
-                                    <!-- Dropdown -->
-                                    <div class="dropdown">
-                                        <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fe fe-more-vertical"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a href="#!" class="dropdown-item">
-                                                Action
-                                            </a>
-                                            <a href="#!" class="dropdown-item">
-                                                Another action
-                                            </a>
-                                            <a href="#!" class="dropdown-item">
-                                                Something else here
-                                            </a>
-                                        </div>
                                     </div>
+                                    <div class="col-auto">
 
-                                </div>
-                            </div> <!-- / .row -->
-
-                            <!-- Divider -->
-                            <hr>
-
-                            <div class="row align-items-center">
-                                <div class="col-auto">
-
-                                    <!-- Avatar -->
-                                    <a href="project-overview.html" class="avatar avatar-4by3">
-                                        <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/projects/project-5.jpg"
-                                             alt="..." class="avatar-img rounded">
-                                    </a>
-
-                                </div>
-                                <div class="col ml--2">
-
-                                    <!-- Title -->
-                                    <h4 class="card-title mb-1">
-                                        <a href="project-overview.html">Personal Site</a>
-                                    </h4>
-
-                                    <!-- Time -->
-                                    <p class="card-text small text-muted">
-                                        <time datetime="2018-05-24">Updated 4hr ago</time>
-                                    </p>
-
-                                </div>
-                                <div class="col-auto">
-
-                                    <!-- Dropdown -->
-                                    <div class="dropdown">
-                                        <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fe fe-more-vertical"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a href="#!" class="dropdown-item">
-                                                Action
+                                        <!-- Dropdown -->
+                                        <div class="dropdown">
+                                            <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button"
+                                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fe fe-more-vertical"></i>
                                             </a>
-                                            <a href="#!" class="dropdown-item">
-                                                Another action
-                                            </a>
-                                            <a href="#!" class="dropdown-item">
-                                                Something else here
-                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a href="#!" class="dropdown-item">
+                                                    Action
+                                                </a>
+                                                <a href="#!" class="dropdown-item">
+                                                    Another action
+                                                </a>
+                                                <a href="#!" class="dropdown-item">
+                                                    Something else here
+                                                </a>
+                                            </div>
                                         </div>
+
                                     </div>
-
                                 </div>
-                            </div> <!-- / .row -->
+                                <hr>
 
+
+                            @endif
+
+                            @endforeach
                         </div> <!-- / .card-body -->
                     </div> <!-- / .card -->
 

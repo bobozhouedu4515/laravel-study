@@ -20,6 +20,7 @@
 			]);
 		}
 
+
 		public function register ()
 		{
 			return view ('user.register');

@@ -72,11 +72,22 @@ public function __construct ()
 //    	dd ($user->name );
 //	    dd ($article);
 	   $user= $article->user;
+//	   dd ($article->comment);
+	    $comments=$article->comment;
+//	    $comment_user=[];
+//	    foreach($comments as $comment){
+////		    dd ($comment);
+////		    dd ($comment -> user);
+//		    $comment_user[]=$comment->user;
+//
+//
+//	    }
+//	    dd ($comment_user);
 //	    dd ($dd);
 //	    $user=$article;
 //	    dd ($user);
 //	    dd ($article);
-	    return view ('home.article.show',compact ('article','user'));
+	    return view ('home.article.show',compact ('article','user','comments'));
     }
 
 

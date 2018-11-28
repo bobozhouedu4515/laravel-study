@@ -10,7 +10,10 @@
         "fideloper/proxy": "^4.0",
         "hieu-le/active": "^3.5",
         "laravel/framework": "5.7.*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "spatie/laravel-activitylog": "^3.1",
+        "laravel/scout": "^5.0",
+        "algolia/algoliasearch-client-php": "^1.2.7"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

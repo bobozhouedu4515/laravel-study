@@ -22,6 +22,13 @@ class CommentController extends Controller
 //	    dd (Comment::all ());
 //	    dd ($comment->get());
 	    $comments=$comment->with('user')->where('article_id',$request->article_id)->get();
+//	    dd ($comments);\
+	    //在每个评论中追加一个字段! 并把它的赞的个数赋值给他;
+	    //这样就保证了 分配到页面上的对象中每个中都有num可以读取!
+	    foreach($comments as $comment){
+		    $comment->num=$comment->praise->count ();
+	    }
+
 //	    dd ($comments);
 	    return ['code'=>1,'message'=>'','comments'=>$comments];
 
@@ -56,6 +63,7 @@ class CommentController extends Controller
 	    $comment = $comment -> with ('user') -> find ($comment ->id);
 //	    获取当前评论的所有信息并包含了用户的所有信息!
 //	   $arr=$comment->with('article')->get();
+	    $comment->num=$comment->praise->count ();
 
 //	    with关联以后 可以得到所有评论,并且每条评论中会包含发表评论的用户的所有信息
 //	    dd ($comment->toArray ());

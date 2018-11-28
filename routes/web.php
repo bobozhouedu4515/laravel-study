@@ -16,6 +16,10 @@ Route::group (['prefix'=>'member','namespace'=>'Member', 'as'=>'member.'],functi
 	Route ::get ('fans/{user}', 'UserController@fans') -> name ('fans');
 	Route ::get ('followings/{user}', 'UserController@followings') -> name ('followings');
 	Route::get ('attention/{user}','UserController@attention')->name ('attention');
+	Route::get ('article.collection/{user}','UserController@article_collection')->name ('article.collection');
+	Route ::get ('myPraise/{user}', 'UserController@myPraise') -> name ('myPraise');
+	Route ::get ('notify/{user}', 'NotifyController@index') -> name ('notify');
+	Route ::get ('notify/show/{notify}', 'NotifyController@show') -> name ('notify.show');
 });
 //工具类
 	Route::group (['middleware'=>['uploadcheck'],'prefix'=>'util','namespace'=>'Util','as'=>'util.'],function(){
@@ -30,12 +34,17 @@ Route::group (['prefix'=>'member','namespace'=>'Member', 'as'=>'member.'],functi
 		Route::get('index','AdminController@index')->name('index');
 		Route::resource('category','CategoryController');
 		Route::get ('member','AdminController@find')->name ('member');
+
 	});
 //前台文章管理路由zu
 	Route::group(['prefix'=>'home','namespace'=>'Home', 'as'=>'home'],function(){
 		Route::get ('article/index','ArticleController@index')->name ('.article.index');
 		Route::resource ('article','ArticleController');
 		Route::resource ('comment','CommentController');
+		Route::get ('praise/make','PraiseController@make')->name ('.praise.make');
+		Route ::get ('praise/index', 'PraiseController@index') -> name ('.praise.index');
+		Route::get ('collection/make','CollectionController@make')->name ('.collection.make');
+		Route ::get ('search', 'IndexController@search') -> name ('search');
 	});
 
 

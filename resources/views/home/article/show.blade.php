@@ -59,8 +59,8 @@
                                 <i class="fe fe-more-vertical"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a href="#!" class="dropdown-item">
-                                    Action
+                                <a href="{{route ('home.collection.make',['type'=>'article','id'=>$article->id])}}" class="dropdown-item">
+                                   ❤ &nbsp;&nbsp;点击收藏
                                 </a>
                                 <a href="#!" class="dropdown-item">
                                     Another action
@@ -93,13 +93,13 @@
                 <div class="row">
                     <div class="col">
 
-                        <a href="#!" class="btn btn-sm btn-white"><font style="vertical-align: inherit;"><font
+                        <a href="{{route ('home.praise.make',['id'=>$article->id,'type'=>'article'])}}" class="btn btn-sm btn-white"><font style="vertical-align: inherit;"><font
                                         style="vertical-align: inherit;">
-                                    😬1
+                                    👍{{$article->praise->count()}}
                                 </font></font></a>
                         <a href="#!" class="btn btn-sm btn-white"><font style="vertical-align: inherit;"><font
                                         style="vertical-align: inherit;">
-                                    👍2
+                                    😬
                                 </font></font></a>
                         <a href="#!" class="btn btn-sm btn-white"><font style="vertical-align: inherit;"><font
                                         style="vertical-align: inherit;">
@@ -110,26 +110,15 @@
                     <div class="col-auto mr--3">
 
                         <div class="avatar-group d-none d-sm-flex">
-                            <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title=""
+                            @foreach($article->praise as $praise )
+                            <a href="{{route ('member.user.show',$praise->user)}}" class="avatar avatar-xs" data-toggle="tooltip" title=""
                                data-original-title="Ab Hadley">
-                                <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-2.jpg"
+                                <img src="{{$praise->user->ico}}"
                                      alt="..." class="avatar-img rounded-circle border border-white">
                             </a>
-                            <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title=""
-                               data-original-title="Adolfo Hess">
-                                <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-3.jpg"
-                                     alt="..." class="avatar-img rounded-circle border border-white">
-                            </a>
-                            <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title=""
-                               data-original-title="Daniela Dewitt">
-                                <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-4.jpg"
-                                     alt="..." class="avatar-img rounded-circle border border-white">
-                            </a>
-                            <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title=""
-                               data-original-title="Miyah Myles">
-                                <img src="{{asset ('org/Dashkit-1.1.2/dist/assets')}}/img/avatars/profiles/avatar-5.jpg"
-                                     alt="..." class="avatar-img rounded-circle border border-white">
-                            </a>
+
+                            @endforeach
+
                         </div>
 
                     </div>
@@ -149,7 +138,9 @@
 
             <!-- Comments -->
 
-            <div class="comment mb-3" v-for="v in comments">
+            <div class="comment mb-3" v-for="v in comments" :id="'comment'+v.id">
+
+                {{--@foreach($comments as $comment)--}}
                 <div class="row">
                     <div class="col-auto">
 
@@ -163,11 +154,10 @@
                     <div class="col ml--2">
 
                         <!-- Body -->
-                        <div class="comment-body">
+                        <div class="comment-body ">
 
                             <div class="row">
                                 <div class="col">
-
                                     <!-- Title -->
                                     <h5 class="comment-title"><font style="vertical-align: inherit;"><font
                                                     style="vertical-align: inherit;">
@@ -175,26 +165,41 @@
                                             </font></font></h5>
 
                                 </div>
-                                <div class="col-auto">
-
+                                <div class="col-auto ">
                                     <!-- Time -->
-                                    <time class="comment-time"><font style="vertical-align: inherit;"><font
+                                    <time class="comment-time "><font style="vertical-align: inherit;"><font
                                                     style="vertical-align: inherit;">
                                                 @{{v.created_at}}
                                             </font></font></time>
-
                                 </div>
                             </div> <!-- / .row -->
 
                             <!-- Text -->
                             <p class="comment-text " v-html="v.content">
-                                {{--@{{ v.content }}--}}
+
                             </p>
 
-                        </div>
 
+                        </div>
+                        <div class="col-auto">
+                            <a href="#!" class="btn btn-sm btn-white"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">
+                                        😬
+                                    </font></font></a>
+                            <a href="" @click.prevent="praise(v)" class="btn btn-sm btn-white"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">
+                                        👍@{{ v.num }}
+                                    </font></font></a>
+                            <a href="{{route ('home.collection.make',[$article->user->id])}}" class="btn btn-sm btn-white"><font style="vertical-align: inherit;"><font
+                                            style="vertical-align: inherit;">
+                                        添加收藏
+                                    </font></font></a>
+                        </div>
+                        <hr>
                     </div>
-                </div> <!-- / .row -->
+                </div>
+{{--@endforeach--}}
+                <!-- / .row -->
             </div>
             <!-- Divider -->
             <!-- Form -->
@@ -225,8 +230,18 @@
                 data: {
                     //为了和返回的数据保持一致 所有创建了一层content
                     comment: {content: ''},
-                    comments: []
+                    comments: [],
+
                 },
+                updated(){
+                    $(document).ready(function () {
+                        $('pre code').each(function (i, block) {
+                            hljs.highlightBlock(block);
+                        });
+                    });
+
+                    hdjs.scrollTo('body',location.hash,0, {queue:true});
+                        },
                 methods: {
                     {{--@auth()--}}
                     send() {
@@ -249,19 +264,30 @@
                             //把每次发表的文章都追加到comments中!
                             this.comments.push(response.data.comment);
                             let md = new MarkdownIt();
+                            // alert(1);
                             response.data.comment.content = md.render(response.data.comment.content);
-                            $(document).ready(function () {
-                                $('pre code').each(function (i, block) {
-                                    hljs.highlightBlock(block);
-                                });
-                            });
+                            // alert(1);
+                            // $(document).ready(function () {
+                            //     $('pre code').each(function (i, block) {
+                            //         hljs.highlightBlock(block);
+                            //     });
+                            // });
                         });
 
                         editormd.setSelection({line: 0, ch: 0}, {line: 9999999, ch: 9999999});
                         //将选中文本替换成空字符串
                         editormd.replaceSelection("");
                     },
-                    {{--@endauth--}}
+
+                    praise(v){
+                        var uri='/home/praise/make?type=comment&id='+v.id;
+                        axios.get(uri).then((response)=>{
+                            // console.log(response);
+                           v.num=response.data.num;
+
+                        })
+                    }
+
                 },
                 mounted() {
                     // alert(1);
@@ -286,7 +312,6 @@
                         onchange: function () {
                             // console.log(1)
                             //当检测到页面变化的时候,this代表编辑器?
-
                                 vm.$set(vm.comment, 'content', this.getValue())
                                 // vm.$set()
 
@@ -299,19 +324,19 @@
                             // console.log(response);
 
                             this.comments = response.data.comments;
+
                             let md = new MarkdownIt();
-                            if (this.comments) {
+                            // if (this.comments) {
                                 this.comments.forEach((v, k) => {
                                     v.content = md.render(v.content)
-                                })
-                            }
-                            $(document).ready(function () {
-                                $('pre code').each(function (i, block) {
-                                    hljs.highlightBlock(block);
                                 });
-                            });
+                            // }
+                            // $(document).ready(function () {
+                            //     $('pre code').each(function (i, block) {
+                            //         hljs.highlightBlock(block);
+                            //     });
+                            // });
                         })
-
                 }
             });
         })

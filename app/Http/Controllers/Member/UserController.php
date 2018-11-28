@@ -3,6 +3,8 @@
 	namespace App\Http\Controllers\Member;
 
 	use App\Models\Article;
+	use App\Models\Collection;
+	use App\Models\Praise;
 	use App\User;
 	use Illuminate\Http\Request;
 	use App\Http\Controllers\Controller;
@@ -119,6 +121,38 @@
 		{
 			$followings = $user -> followings () -> paginate (3);
 			return view ('member.user.edit_followings', compact ('followings','user'));
+
+		}
+
+		public function article_collection (Request $request,User $user)
+		{
+
+			$type = $request -> query ('type');
+//			dd ($id);
+//			dd ($type);
+			$class='App\Models\\'.ucfirst ($type);
+//			dd ($user->collection );
+			$collections=$user->collection->where('collection_type',$class)->all();
+//			dd ($collections);
+			return view ('member.user.'.$type.'_collection',compact ('user','collections'));
+		}
+
+		function myPraise (Request $request,User $user,Praise $praise)
+		{
+			$type = $request -> query ('type');
+//			dd ($type);
+			$class='App\Models\\'.ucfirst ($type);
+//			dd ($class);
+//			dd ($user->praise);
+//			$newPraise=[];
+			$praises=$user->praise->where('praise_type',$class)->all();
+//			dd ($praises);
+//			foreach($praises as $praise){
+//				dump ($praise->belongsModel);
+//			}
+//			die;
+			return view ('member.user.praise_'.$type,compact ('user','praises'));
+
 
 		}
 

@@ -3,7 +3,7 @@
 
 <div class="col-sm-3">
 
-    <div class="card">
+    <div class="card" id="activeCard">
         <div class="card-block text-center pt-4">
             <div class="avatar avatar-xxl">
                 <a href="{{route ('member.user.edit',[$user,'type'=>'ico'])}}">
@@ -56,6 +56,15 @@
                 <a href="{{route ('member.user.show',$user)}}"  class="nav-link text-muted fa fa-male  {{active_class(if_route(['member.user.show',$user]))}} ">
                     个人中心
                 </a>
+                <a href="{{route ('member.article.collection',[$user,'type'=>'article'])}}"  class="nav-link text-muted fa fa-male  ">
+                    我的收藏
+                </a>
+                <a href="{{route ('member.myPraise',[$user,'type'=>'comment'])}}"  class="nav-link text-muted fa fa-male  ">
+                    我的点赞
+                </a>
+                <a href="{{route ('member.notify',$user)}}"  class="nav-link text-muted fa fa-male  ">
+                    消息通知
+                </a>
             </div>
         </div>
     </div>
@@ -63,7 +72,7 @@
 </div>
 @push('css')
     <style>
-        .active{
+        #activeCard.active{
             color:white!important;
         }
     </style>
