@@ -10,7 +10,7 @@ class Article extends Model
 {
 	use Searchable;
 	use LogsActivity;
-	protected $fillable = [];
+	protected $fillable = ['title','user_id','category_id','content'];
 
 	//设置记录动态的属性
 	protected static $logAttributes = ['content','title','user_id'];
@@ -19,7 +19,7 @@ class Article extends Model
 
 	//模型情况下将包括：`created` `updated` `deleted`，可以设置模型属性`$recordEvents`来进行自定义
 	//only the `deleted` event will get logged automatically
-	protected static $recordEvents = ['created','updated','deleted'];
+	protected static $recordEvents = ['created','updated'];
 
 	//自定义日志名称
 	protected static $logName = 'article';
@@ -52,6 +52,7 @@ class Article extends Model
 
 	public function getLink ($param)
 	{
+		//$this 谁调用该方法 $this就指向谁! 这里就是当前文章的id
 		return route ('homearticle.show',$this).$param;
 	}
 

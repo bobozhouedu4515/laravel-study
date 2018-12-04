@@ -1,6 +1,3 @@
-
-
-
 <div class="col-sm-3">
 
     <div class="card" id="activeCard">
@@ -20,60 +17,75 @@
         </div>
         <div class="card-body text-center pt-4 pb-5">
             <div class="nav flex-column nav-pills ">
-                <a href="{{route ('member.attention',$user)}}" style="color:red;"  class=" pb-2 nav flex-column nav-pills fa fa-heart">
-                  @if($user->fans->contains(auth ()->user ()))
-                    取消关注
-                      @else
-                    添加关注
-                      @endif
-                </a>
+                @if($user->fans->contains(auth ()->user ()))
+                    <a href="{{route ('member.attention',$user)}}" class=" nav-link text-muted fe fe-heart">
+                        取消关注
+                        @else
+                            <a href="{{route ('member.attention',$user)}}" class=" nav-link text-muted  fe fe-heart">
+                                添加关注
+                                @endif
+                            </a>
+                    </a>
             </div>
-                @can('isMine',$user)
+            @can('isMine',$user)
                 <div class="nav flex-column nav-pills pb--3 ">
-                    <a href="{{route ('member.user.edit',[$user,'type'=>'ico'])}}" class="nav-link text-muted fa fa-user {{ active_class(if_route(['member.user.edit']) && if_query('type', 'ico'),'active','') }}">
+                    <a href="{{route ('member.user.edit',[$user,'type'=>'ico'])}}"
+                       class="nav-link text-muted  fe fe-user {{ active_class(if_route(['member.user.edit']) && if_query('type', 'ico'),'active','') }}">
                         修改头像
                     </a>
-                </div>
-
-                <div class="nav flex-column nav-pills ">
-                    <a href="{{route ('member.user.edit',[$user,'type'=>'password'])}}" class="nav-link text-muted fa fa-key {{ active_class(if_route(['member.user.edit']) && if_query('type', 'password'),'active','') }}">
+                    <a href="{{route ('member.user.edit',[$user,'type'=>'password'])}}"
+                       class="nav-link text-muted fa fa-key {{ active_class(if_route(['member.user.edit']) && if_query('type', 'password'),'active','') }}">
                         修改密码
                     </a>
-                </div>
-                <div class="nav flex-column nav-pills ">
-                    <a href="{{route ('member.user.edit',[$user,'type'=>'name'])}}" class="nav-link text-muted fa fa-pencil-square-o {{ active_class(if_route(['member.user.edit']) && if_query('type', 'name'),'active','') }}">
+                    <a href="{{route ('member.user.edit',[$user,'type'=>'name'])}}"
+                       class="nav-link text-muted fa fa-pencil-square-o {{ active_class(if_route(['member.user.edit']) && if_query('type', 'name'),'active','') }}">
                         修改昵称
                     </a>
+                    <a href="{{route ('member.notify',$user)}}"
+                       class="nav-link text-muted fe fe-mail {{ active_class(if_route(['member.notify']))}} ">
+                        消息通知
+                    </a>
                 </div>
-                @endcan
-            <div class="nav flex-column nav-pills ">
-                <a href="{{route ('member.fans',$user)}}" class="nav-link text-muted fa fa-users {{ active_class(if_route(['member.fans',$user])) }}">
-                    粉丝列表
-                </a>
-                <a href="{{route ('member.followings',$user)}}" class="nav-link text-muted fa fa-users {{ active_class(if_route(['member.followings',$user])) }}">
-                    关注列表
-                </a>
-                <a href="{{route ('member.user.show',$user)}}"  class="nav-link text-muted fa fa-male  {{active_class(if_route(['member.user.show',$user]))}} ">
-                    个人中心
-                </a>
-                <a href="{{route ('member.article.collection',[$user,'type'=>'article'])}}"  class="nav-link text-muted fa fa-male  ">
+            @endcan
+
+        </div>
+        <div class="card-body text-center pt-2 pb-2 ">
+            <a href="{{route ('member.fans',$user)}}"
+               class="nav-link text-muted fe fe-users {{active_class (if_route (['member.fans',$user]))}}">
+                粉丝列表
+            </a>
+            <a href="{{route ('member.followings',$user)}}"
+               class="nav-link text-muted fe fe-users {{ active_class(if_route(['member.followings',$user])) }}">
+                关注列表
+            </a>
+            <a href="{{route ('member.user.show',$user)}}"
+               class="nav-link text-muted fe fe-user  {{active_class(if_route(['member.user.show',$user]))}} ">
+                个人中心
+            </a>
+            <a href="{{route ('member.article.collection',[$user,'type'=>'article'])}}"
+               class="nav-link text-muted fe fe-folder {{ active_class(if_route(['member.article.collection']))}}">
+                @can('noMine',$user)
+                    他的收藏
+                    @else
                     我的收藏
-                </a>
-                <a href="{{route ('member.myPraise',[$user,'type'=>'comment'])}}"  class="nav-link text-muted fa fa-male  ">
-                    我的点赞
-                </a>
-                <a href="{{route ('member.notify',$user)}}"  class="nav-link text-muted fa fa-male  ">
-                    消息通知
-                </a>
-            </div>
+                @endcan
+            </a>
+            <a href="{{route ('member.myPraise',[$user,'type'=>'comment'])}}"
+               class="nav-link text-muted fe fe-heart {{ active_class(if_route(['member.myPraise']))}}  ">
+                @can('noMine',$user)
+                他的点赞
+                @else
+                我的点赞
+                @endcan
+            </a>
         </div>
     </div>
-
 </div>
 @push('css')
     <style>
-        #activeCard.active{
-            color:white!important;
+        #activeCard .active {
+            color: white !important;
+            background:cornflowerblue;
         }
     </style>
 @endpush

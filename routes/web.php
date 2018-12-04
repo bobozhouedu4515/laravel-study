@@ -34,7 +34,10 @@ Route::group (['prefix'=>'member','namespace'=>'Member', 'as'=>'member.'],functi
 		Route::get('index','AdminController@index')->name('index');
 		Route::resource('category','CategoryController');
 		Route::get ('member','AdminController@find')->name ('member');
-
+		Route ::get ('config/{name}/edit', 'ConfigController@edit') -> name ('config.edit');
+		Route ::post ('config/{name}/update', 'ConfigController@update') -> name ('config.update');
+//
+		Route::resource ('picture','PictureController');
 	});
 //前台文章管理路由zu
 	Route::group(['prefix'=>'home','namespace'=>'Home', 'as'=>'home'],function(){
@@ -45,6 +48,16 @@ Route::group (['prefix'=>'member','namespace'=>'Member', 'as'=>'member.'],functi
 		Route ::get ('praise/index', 'PraiseController@index') -> name ('.praise.index');
 		Route::get ('collection/make','CollectionController@make')->name ('.collection.make');
 		Route ::get ('search', 'IndexController@search') -> name ('search');
+
 	});
+	//微信路由
+Route::group (['prefix'=>'wechat','namespace'=>'Wechat','as'=>'wechat.'],function (){
+	Route::any ('api/handler','ApiController@handler')->name ('api.handler');
+	Route::resource ('button','ButtonController');
+	Route ::get ('button/{button}/push', 'ButtonController@push') -> name ('button.push');
+	Route::resource ('response_text','ResponseTextController');
+	Route::resource ('response_news','ResponseNewsController');
+	Route::resource ('response_base','ResponseBaseController');
+});
 
 

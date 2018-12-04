@@ -49,28 +49,15 @@
 
                     </div>
                     <div class="col-auto">
-
-
-                        <!-- Dropdown -->
-                        <div class="dropdown">
-
-                            <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
-                                <i class="fe fe-more-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a href="{{route ('home.collection.make',['type'=>'article','id'=>$article->id])}}" class="dropdown-item">
-                                   ❤ &nbsp;&nbsp;点击收藏
-                                </a>
-                                <a href="#!" class="dropdown-item">
-                                    Another action
-                                </a>
-                                <a href="#!" class="dropdown-item">
-                                    Something else here
-                                </a>
-                            </div>
-                        </div>
-
+                        @auth()
+                        <a href="{{route ('home.collection.make',['type'=>'article','id'=>$article->id])}}" class="dropdown-item">
+                            @if($article->collection->where('user_id',auth ()->id())->first())
+                             <span class="fa fa-heart"></span>&nbsp;&nbsp;取消收藏
+                                @else
+                                ❤ &nbsp;收藏
+                                @endif
+                        </a>
+                            @endauth
                     </div>
                 </div> <!-- / .row -->
             </div>
@@ -97,15 +84,6 @@
                                         style="vertical-align: inherit;">
                                     👍{{$article->praise->count()}}
                                 </font></font></a>
-                        <a href="#!" class="btn btn-sm btn-white"><font style="vertical-align: inherit;"><font
-                                        style="vertical-align: inherit;">
-                                    😬
-                                </font></font></a>
-                        <a href="#!" class="btn btn-sm btn-white"><font style="vertical-align: inherit;"><font
-                                        style="vertical-align: inherit;">
-                                    添加反应
-                                </font></font></a>
-
                     </div>
                     <div class="col-auto mr--3">
 
@@ -145,7 +123,7 @@
                     <div class="col-auto">
 
                         <!-- Avatar -->
-                        <a class="avatar" href="profile-posts.html">
+                        <a class="avatar" href="#!">
                             <img :src="v.user.ico"
                                  alt="..." class="avatar-img rounded-circle">
                         </a>
@@ -182,18 +160,21 @@
 
                         </div>
                         <div class="col-auto">
-                            <a href="#!" class="btn btn-sm btn-white"><font style="vertical-align: inherit;"><font
-                                            style="vertical-align: inherit;">
-                                        😬
-                                    </font></font></a>
+                            @auth()
                             <a href="" @click.prevent="praise(v)" class="btn btn-sm btn-white"><font style="vertical-align: inherit;"><font
                                             style="vertical-align: inherit;">
                                         👍@{{ v.num }}
                                     </font></font></a>
-                            <a href="{{route ('home.collection.make',[$article->user->id])}}" class="btn btn-sm btn-white"><font style="vertical-align: inherit;"><font
+                            <a href="!#" class="btn btn-sm btn-white"><font style="vertical-align: inherit;"><font
                                             style="vertical-align: inherit;">
                                         添加收藏
                                     </font></font></a>
+                                @else
+                                <a href="javascript:;" onclick="remind(this)" class="btn btn-sm btn-white"><font style="vertical-align: inherit;"><font
+                                                style="vertical-align: inherit;">
+                                            👍@{{ v.num }}
+                                        </font></font></a>
+                                @endauth
                         </div>
                         <hr>
                     </div>
@@ -235,6 +216,7 @@
                 },
                 updated(){
                     $(document).ready(function () {
+                        // console.log(1);
                         $('pre code').each(function (i, block) {
                             hljs.highlightBlock(block);
                         });
@@ -344,7 +326,7 @@
     <script>
         function remind() {
             require(['hdjs'], function (hdjs) {
-                hdjs.swal("亲啊", "你还没有登录呀!", "error");
+                hdjs.swal("", "登陆后才可以操作", "error");
             })
         }
     </script>

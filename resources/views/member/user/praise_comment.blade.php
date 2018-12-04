@@ -1,6 +1,6 @@
 @extends('home.layouts.master')
 @section('content')
-    <div class="container mt-5">
+    <div class="container mt-5" id="app">
         <div class="row">
             @include('member.layouts.menu')
             <div class="col-sm-9">
@@ -9,12 +9,12 @@
                 <ul class="nav nav-tabs nav-tabs-sm">
                     <li class="nav-item">
                         <a href="{{route ('member.myPraise',[$user,'type'=>'article'])}}" class="nav-link  ">
-                            我赞的文章
+                            文章
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#!" class="nav-link active">
-                            我赞的评论
+                            评论
                         </a>
                     </li>
                 </ul>
@@ -31,7 +31,7 @@
                                         <!-- Title -->
                                             {{--{{route ('')}}--}}
                                             <h4 class="card-header-title">
-                                                @if(auth()->id() == $user->id)我@else他@endif的评论收藏
+                                                @if(auth()->id() == $user->id)我@else他@endif赞过的评论
                                             </h4>
 
                                         </div>
@@ -61,7 +61,7 @@
                                     <ul class="list-group list-group-lg list-group-flush list my--4">
 
                                         {{--{{$fans->count()}}--}}
-
+                                        {{$praises->appends(['type'=>'comment'])->links()}}
                                     @foreach($praises as $praise)
                                         <li class="list-group-item px-0">
                                             <div class="row align-items-center">
@@ -75,7 +75,7 @@
                                                 <div class="col ml--2">
                                                     <!-- Title -->
                                                     <h4 class="card-title mb-1 name">
-                                                        <a href="">  {{$praise->belongsModel->content}}</a>
+                                                        {{$praise->belongsModel->content}}
                                                     </h4>
                                                 </div>
                                             </div>
@@ -86,7 +86,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> <!-- / .row -->
+                    </div>
 
                 </div>
             </div>
@@ -94,3 +94,21 @@
         </div>
     </div>
 @endsection
+@push('js')
+    <script>
+        require(['hdjs','vue','MarkdownIt'],function(hdjs,Vue,MarkdownIt){
+
+            new Vue({
+                el:'#app',
+                data:{
+                    content:[]
+                },
+                methods:{
+                },
+                mounted(){
+                    let md=new MarkdownIt();
+                }
+                } )
+        })
+    </script>
+    @endpush

@@ -72,19 +72,19 @@ class UploadController extends Controller
 		}
 	}
 
-	public function checkSize ($file,$size=2000000)
+	public function checkSize ($file)
 	{
-		if ($file->getSize()>$size){
+		if ($file->getSize()>hd_config ('upload.size')){
 //laravel带的抛出异常类,
 			throw  new UploadException('图片太大了');
 		}
 	}
 
-	public function checkType ($file,$typeArray=['png','jpg','jpeg','bmp','gif'])
+	public function checkType ($file)
 	{
 		$fileType=$file->getClientoriginalExtension();
 //		dd ($fileType);
-		if (!in_array (strtolower ($fileType),$typeArray)){
+		if (!in_array (strtolower ($fileType),explode('|',hd_config('upload.type')))){
 			throw new UploadException('图片格式不符合要求');
 		}
 	}

@@ -145,7 +145,7 @@
 //			dd ($class);
 //			dd ($user->praise);
 //			$newPraise=[];
-			$praises=$user->praise->where('praise_type',$class)->all();
+			$praises=$user->praise()->where('praise_type',$class)->paginate(1);
 //			dd ($praises);
 //			foreach($praises as $praise){
 //				dump ($praise->belongsModel);

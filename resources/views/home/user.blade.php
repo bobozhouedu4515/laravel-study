@@ -53,6 +53,9 @@
                                                 <!-- Title -->
                                                 {{$user->name}}
 
+
+
+
                                                 <h4 class="card-title mb-1 name">
                                                     <a href="{{route ('homearticle.show',$user->id)}}"></a>
                                                 </h4>

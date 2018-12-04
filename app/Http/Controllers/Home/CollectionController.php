@@ -12,10 +12,12 @@ class CollectionController extends Controller
 	{
 //		dd ($user);
 		$type = $request -> query ('type');
+//		dd ($type);
 		$id = $request -> query ('id');
-		$model='App\Models\\'.$type;
+//		dd ($id);
+		$model='App\Models\\'.ucfirst ($type);
 		$class = $model ::find ($id);
-//		dd ($class);
+
 		if ($collection=$class->collection->where('user_id',auth ()->id ())->first()){
 			$collection -> delete ();
 

@@ -1,15 +1,11 @@
 @extends('home.layouts.master')
 @section('content')
-
-
     <div class="container">
         <div class="container-fluid">
             <div class="row">
 
                 <div class="col-12">
-                    {{-- {{$articles->appends(['category' => Request::query('category')])->links()}}--}}
 
-                <!-- Files -->
                     <div class="card" data-toggle="lists" data-lists-values='["name"]'>
                         <div class="card-header">
                             <div class="row align-items-center">
@@ -25,13 +21,14 @@
                                                     class="">发表文章</strong>哦!</p>
 
                                     @endauth
-                                    <a href="{{route ('home.article.index',['num'=>0])}}" class="btn btn-success">所有文章</a>
+                                    <a href="{{route ('home.article.index',['num'=>0])}}"
+                                       class="btn btn-success">所有文章</a>
                                     <a href="{{route ('home.article.index',['num'=>3])}}" class="btn btn-white">技术分享</a>
                                     <a href="{{route ('home.article.index',['num'=>5])}}" class="btn btn-white">码农生活</a>
                                     <a href="{{route ('home.article.index',['num'=>2])}}" class="btn btn-white">桌面文化</a>
                                     <a href="{{route ('home.article.index',['num'=>1])}}" class="btn btn-white">程序人生</a>
                                     <a href="{{route ('home.article.index',['num'=>4])}}" class="btn btn-white">问答求助</a>
-                                     </div>
+                                </div>
                             </div> <!-- / .row -->
                         </div>
 
@@ -44,7 +41,6 @@
 
                                         <div class="row align-items-center">
                                             <div class="col-auto">
-
                                                 <!-- Avatar -->
                                                 <a href="{{route ('member.user.show',$article->user)}}"
                                                    class="avatar avatar-lg">
@@ -79,7 +75,7 @@
 
                                             </div>
                                             <div class="col-auto">
-
+                                            @auth()
                                                 <!-- Dropdown -->
                                                 <div class="dropdown">
                                                     <a href="#!" class="dropdown-ellipses dropdown-toggle" role="button"
@@ -87,6 +83,7 @@
                                                        aria-expanded="false">
                                                         <i class="fe fe-more-vertical"></i>
                                                     </a>
+
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a href="{{route ('homearticle.show',$article)}}"
                                                            class="dropdown-item">
@@ -114,7 +111,7 @@
 
                                                     </div>
                                                 </div>
-
+                                                @endauth
                                             </div>
                                         </div> <!-- / .row -->
 
@@ -139,9 +136,9 @@
 @push('js')
     <script>
         function del(obj) {
-            require(['hdjs','bootstrap'], function (hdjs) {
+            require(['hdjs', 'bootstrap'], function (hdjs) {
                 hdjs.confirm('确定删除吗?', function () {
-                    alert('点击确定后执行的回调函数');
+                    $(obj).next('form').submit();
                 })
             })
         }

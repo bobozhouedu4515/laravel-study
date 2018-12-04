@@ -6,8 +6,8 @@
             <div class="col-sm-9">
                 <div class="row justify-content-center  __web-inspector-hide-shortcut__">
 
-                    <input type="hidden" name="_token" value="meB8V3w51M6Fv2HJh2u70JUOzWk9CeaN2PFfdCeA"> <input
-                            type="hidden" name="_method" value="PUT">
+                    {{--<input type="text" name="_token" value="meB8V3w51M6Fv2HJh2u70JUOzWk9CeaN2PFfdCeA"> <input--}}
+                            {{--type="text" name="_method" value="">--}}
                     <div class="card">
                         <div class="card-header">
                             <h4>头像设置</h4>
@@ -19,7 +19,7 @@
                                 <img src="{{$user->ico}}" alt="..." class="avatar-img rounded-circle">
                             </div>
                             <br>
-                            <span class="help-block text-muted small">请上传 200X200 像素并小于200KB的JPG图片</span>
+                            <span class="help-block text-muted small">请上传 200X200 像素并小于200KB的图片</span>
                         </div>
                     </div>
 

@@ -4,9 +4,11 @@ namespace App\Providers;
 
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Config;
 use App\Notifications\CommentNotify;
 use App\Observers\CategoryObserver;
 use App\Observers\CommentObserve;
+use App\Observers\ConfigObserver;
 use App\Observers\UserObserver;
 use App\User;
 use Carbon\Carbon;
@@ -32,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
 	    Carbon ::setLocale ('zh');
 //	    注册评论观察者
 	    Comment ::observe (CommentObserve::class);
+	    Config ::observe (ConfigObserver::class);
 
     }
 

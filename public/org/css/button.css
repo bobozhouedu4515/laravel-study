@@ -1,0 +1,29 @@
+.mobile {
+    height: 500px;
+    border: 1px solid #cccccc;
+    display: flex;
+}
+.mobile .mobile-container {
+    display: flex;
+    flex: 1;
+}
+.mobile .mobile-container dl {
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.mobile .mobile-container dl dt {
+    padding: 5px;
+    text-align: center;
+    background: #cccccc;
+    border: 1px solid white;
+}
+.mobile .mobile-container dl dd {
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+    background: #edf2f9;
+    border: 1px solid white;
+}

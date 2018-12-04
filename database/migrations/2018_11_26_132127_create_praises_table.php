@@ -19,7 +19,6 @@ class CreatePraisesTable extends Migration
             $table->unsignedInteger ('praise_id')->index ()->comment ('被点赞的模型的id');
             $table->string('praise_type')->index ()->comment ('赞的文章中');
             $table->timestamps();
-            $table->timestamps();
         });
     }
 

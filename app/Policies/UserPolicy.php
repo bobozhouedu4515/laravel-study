@@ -93,6 +93,8 @@ class UserPolicy
 
 	public function noMine (User $user,User $model)
 	{
+//		dd ($model);
+//		dd ($user);
 		return $user->id!==$model->id;
 	}
 }

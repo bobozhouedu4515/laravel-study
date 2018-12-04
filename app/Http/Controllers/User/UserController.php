@@ -112,18 +112,7 @@
 
 
 		}
-		public function remind ( User $user)
-		{
-			$remind='';
-			if (auth ()->user ()){
-				$remind=1;
-			}else{
-				$remind=0;
-			}
 
-			echo $remind;
-
-		}
 
 
 	}

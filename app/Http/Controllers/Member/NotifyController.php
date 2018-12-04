@@ -14,7 +14,8 @@ class NotifyController extends Controller
 	{
 
 //		dd ($user);
-		$notifications = $user->notifications;
+		$this -> authorize ('isMine', $user);
+		$notifications = $user->notifications()->paginate(5);
 //		dd ($notifications);
 
 
@@ -23,7 +24,12 @@ class NotifyController extends Controller
 
 	public function show (DatabaseNotification $notify)
 	{
+		//当前的通知消息
+//	dd ($notify);
+		//markAsRead会把消息中的readat中的null标记成当前的时间
 		$notify->markAsRead();
+//		dd ($notify);
+		//然后让他指向评论的的锚链接!使用三方工具,直接滚动到锚点
 		return redirect($notify['data']['link']);
 	}
 

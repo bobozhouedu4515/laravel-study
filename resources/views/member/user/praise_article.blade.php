@@ -7,12 +7,12 @@
                 <ul class="nav nav-tabs nav-tabs-sm">
                     <li class="nav-item">
                         <a href="#!" class="nav-link  active">
-                            我赞的文章
+                        文章
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{route ('member.myPraise',[$user,'type'=>'comment'])}}" class="nav-link">
-                            我赞的评论
+                            评论
                         </a>
                     </li>
 
@@ -25,10 +25,7 @@
                                 <div class="card-header">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                        {{--{{auth ()->id ()}}--}}
 
-                                        <!-- Title -->
-                                            {{--{{route ('')}}--}}
                                             <h4 class="card-header-title">
                                                 @if(auth()->id() == $user->id)我@else他@endif赞过的文章
                                             </h4>
@@ -53,21 +50,22 @@
                                                 </a>
                                             </div>
                                         @endcan
+
                                     </div> <!-- / .row -->
                                 </div>
                                 <div class="card-body">
-                                    <!-- List -->
+
+
                                     <ul class="list-group list-group-lg list-group-flush list my--4">
 
-                                        {{--{{$fans->count()}}--}}
+                                        {{$praises->appends(['type'=>'article'])->links()}}
+
 
                                         @foreach($praises as $praise)
+
                                         <li class="list-group-item px-0">
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
-                                                    <!-- Avatar -->
-                                                    {{--{{auth ()->user ()}}--}}
-
                                                     <a href="{{route ('member.user.show',$user)}}" class="avatar avatar-sm">
                                                         <img src="{{$praise->belongsModel->user->ico}}" alt="..."
                                                              class="avatar-img rounded">
@@ -82,12 +80,17 @@
                                             </div>
                                         </li>
                                             @endforeach
+
                                     </ul>
+                                    <div>
+                                        <a href="">1111</a>
+                                    </div>
 
                                 </div>
                             </div>
                         </div>
-                    </div> <!-- / .row -->
+                    </div>
+
 
                 </div>
 
