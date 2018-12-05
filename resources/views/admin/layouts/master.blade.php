@@ -178,7 +178,7 @@
                     <a class="nav-link" href="#sidebarAuth" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="sidebarAuth">
                         <i class="fe fe-user"></i> 修改配置
                     </a>
-                    <div class="collapse show" id="sidebarAuth">
+                    <div class="collapse " id="sidebarAuth">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">  <a href="{{route ('admin.config.edit',['name'=>'base'])}}" class="nav-link"  role="button" aria-expanded="false" aria-controls="sidebarSignIn">
                                     基础配置
@@ -205,7 +205,7 @@
                     <a class="nav-link" href="#sidebarWechat" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuth">
                         <i class="fe fe-message-square"></i> 微信管理
                     </a>
-                    <div class="collapse show" id="sidebarWechat">
+                    <div class="collapse " id="sidebarWechat">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="{{route('wechat.button.index')}}" class="nav-link" >
@@ -236,18 +236,23 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#sidebarLayouts" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
-                        <i class="fe fe-layout"></i> 会员管理系统
+                        <i class="fe fe-layout"></i> 权限管理
                     </a>
                     <div class="collapse " id="sidebarLayouts">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{route ('admin.member')}}" class="nav-link">
-                                    查看会员表
+                                <a href="{{route ('role.userlist')}}" class="nav-link active">
+                                    用户列表
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="dashboard-side-topnav.html" class="nav-link active">
-                                    Sidenav + top nav
+                                <a href="{{route ('role.role.index')}}" class="nav-link">
+                                    角色管理
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route ('role.permission.index')}}" class="nav-link active">
+                                   权限列表
                                 </a>
                             </li>
                             <li class="nav-item">

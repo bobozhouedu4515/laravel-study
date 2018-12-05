@@ -17,7 +17,7 @@ class AdminAuthMiddleware
     {
 //	    dd (auth ()->check ());
 	    if(!auth()->check() || auth()->user()->superadmin != 1){
-		    return redirect()->route('home')->with ('danger','页面不存在');
+		    return redirect()->route('home')->with ('danger','无权限');
 	    }
 //	    dd ($next($request));
 	    return $next($request);

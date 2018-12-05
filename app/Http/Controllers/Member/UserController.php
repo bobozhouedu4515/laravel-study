@@ -157,4 +157,12 @@
 		}
 
 
+		public function destroy (User $user)
+		{
+			$user -> delete ();
+			return redirect () -> route ('role.userlist') -> with ('success', '删除成功');
+
+		}
+
+
 	}

@@ -160,8 +160,7 @@
         .swiper-slide {
             text-align: center;
             font-size: 18px;
-            background: #000000;
-
+            background: rgba(0,0,0,0.8);
         }
         .swiper-slide img {
             width: auto;

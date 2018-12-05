@@ -11,6 +11,8 @@ use App\Http\Controllers\Controller;
 
 class ApiController extends Controller
 {
+
+
 	public function handler ( WeChatService $weChatService)
 	{
 		$instance =WeChat::instance('message');

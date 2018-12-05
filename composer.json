@@ -15,7 +15,8 @@
         "laravel/framework": "5.7.*",
         "laravel/scout": "^5.0",
         "laravel/tinker": "^1.0",
-        "spatie/laravel-activitylog": "^3.1"
+        "spatie/laravel-activitylog": "^3.1",
+        "spatie/laravel-permission": "^2.28"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
