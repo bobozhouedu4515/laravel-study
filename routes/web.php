@@ -51,20 +51,22 @@
 
 	});
 	//微信路由
-	Route ::group (['prefix' => 'wechat', 'namespace' => 'Wechat', 'as' => 'wechat.' ], function () {
-		Route ::any ('api/handler', 'ApiController@handler') -> name ('api.handler');
+	Route ::group (['middleware' => [ 'wechat.auth' ],'prefix' => 'wechat', 'namespace' => 'Wechat', 'as' => 'wechat.' ], function () {
 		Route ::resource ('button', 'ButtonController');
 		Route ::get ('button/{button}/push', 'ButtonController@push') -> name ('button.push');
 		Route ::resource ('response_text', 'ResponseTextController');
 		Route ::resource ('response_news', 'ResponseNewsController');
 		Route ::resource ('response_base', 'ResponseBaseController');
 	});
-Route::group (['prefix'=>'role','namespace'=>'Role','as'=>'role.'],function (){
+	//微信对接方法
+	Route ::any ('wechat/api/handler', 'Wechat\ApiController@handler') -> name ('wechat.api.handler');
+Route::group (['middleware' => [ 'role.auth' ],'prefix'=>'role','namespace'=>'Role','as'=>'role.'],function (){
 	Route ::get ('permission/index', 'PermissionController@index') -> name ('permission.index');
 	Route::resource ('role','RoleController');
 	Route ::get ('userlist', 'RoleController@userList') -> name ('userlist');
-	Route ::get ('setpermission/{user}', 'PermissionController@showPermission') -> name ('setpermission');
+	Route ::get ('setpermission/{role}', 'PermissionController@showPermission') -> name ('setpermission');
 	Route ::get ('rolelist/{user}', 'RoleController@roleList') -> name ('rolelist');
-
+	Route::post ('show_permission_store/{role}','PermissionController@showPermissionStore')->name ('show_permission_store');
+	Route::post ('role_list_store /{user}','RoleController@roleListStore')->name ('role_list_store ');
 });
 

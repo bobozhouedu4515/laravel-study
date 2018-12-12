@@ -66,8 +66,21 @@ class RoleController extends Controller
 
 	public function roleList (Role $role,User $user)
 	{
+//		dd ($role);
+		$roles = Role ::all ();
 
 
-		return view ('role.role.roleList');
+
+		return view ('role.role.roleList',compact ('roles','user'));
+	}
+
+	public function roleListStore (User $user)
+	{
+//		dd (\request () -> all ());
+		$roles=request ()->role;
+
+		$user->syncRoles($roles);
+		return redirect () -> route ('role.userlist') -> with ('success', '设置成功');
+
 	}
 }

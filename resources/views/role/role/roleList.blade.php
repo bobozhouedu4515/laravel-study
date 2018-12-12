@@ -28,49 +28,36 @@
             </div>
         </div>
         <div class="container">
-
+            <form action="{{route ('role.role_list_store ',$user)}}" method="post">
+                @csrf
             <div class="card">
                 <div class="card-header">
                     请选择角色
                 </div>
+
                 <div class="card-body">
                     <div class="row">
+                        @foreach($roles as $value)
                         <div class="col-2">
                             <div class="form-group">
                                 <div class="form-check">
 
-                                    <input type="checkbox" id="role0" name="role[]" value="webmaster">
+                                    <input type="checkbox" id="role0" name="role[]" value="{{$value->name}}"
+                                           @if($user->hasRole($value->name)) checked @endif
+                                    >
                                     <label for="role0" class="form-check-label">
-                                        站长 | webmaster
+                                        {{$value->title}}
                                     </label>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-2">
-                            <div class="form-group">
-                                <div class="form-check">
-
-                                    <input type="checkbox" id="role1" name="role[]" value="master" checked="">
-                                    <label for="role1" class="form-check-label">
-                                        超级管理员 | master
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="form-group">
-                                <div class="form-check">
-
-                                    <input type="checkbox" id="role2" name="role[]" value="article" checked="">
-                                    <label for="role2" class="form-check-label">
-                                        文章管理员 | article
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
+                    <button class="btn btn-primary">保存</button>
+
             </div>
+            </form>
         </div>
     </div>
 @endsection

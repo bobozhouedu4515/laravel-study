@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Spatie\Permission\Models\Role;
 
-class AdminAuthMiddleware
+class RoleMiddleWare
 {
     /**
      * Handle an incoming request.
@@ -16,11 +16,10 @@ class AdminAuthMiddleware
      */
     public function handle($request, Closure $next)
     {
-//	    dd (auth ()->check ());
-	    if(!auth()->check() || !auth()->user()->hasAnyRole(Role::all ())){
+	    if(!auth()->check() || !auth()->user()->hasRole('webmaster')){
 		    return redirect()->route('home')->with ('danger','无权限');
 	    }
-//	    dd ($next($request));
-	    return $next($request);
+
+        return $next($request);
     }
 }

@@ -3,7 +3,9 @@
 namespace App\Http;
 
 use App\Http\Middleware\AdminAuthMiddleware;
+use App\Http\Middleware\RoleMiddleWare;
 use App\Http\Middleware\UploadMiddleware;
+use App\Http\Middleware\WeChatMiddleWare;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -63,7 +65,10 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 	    'adminauth'=>AdminAuthMiddleware::class,
-	    'uploadcheck'=>UploadMiddleware::class
+	    'uploadcheck'=>UploadMiddleware::class,
+	    'role.auth'=>RoleMiddleWare::class,
+	    'wechat.auth'=>WeChatMiddleWare::class
+
     ];
 
     /**

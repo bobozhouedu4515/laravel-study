@@ -152,12 +152,12 @@
                                     style="font-size:smaller;color:blue;">{{auth ()->user ()->name}}</span></a>
                         <hr class="dropdown-divider">
 
-                        @can('view',Auth::user () )
+                        @hasanyrole(\Spatie\Permission\Models\Role::all ())
 
-                            <a href="{{route ('admin.category.index')}}" class="dropdown-item">后台管理</a>
+                            <a href="{{route ('admin.index')}}" class="dropdown-item">后台管理</a>
 
                             <hr class="dropdown-divider">
-                        @endcan
+                        @endhasanyrole
                         <a href="{{route ('user.logout')}}" class="dropdown-item">注销登录</a>
                     </div>
                 @else
